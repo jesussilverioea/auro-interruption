@@ -25,9 +25,23 @@
 
       <demo-snippet>
         <template>
-          <auro-modal cssClass="testClass">Hello World!</auro-modal>
+          <button onclick="fireDemo('demo1');">Modal 1</button>
+          <button onclick="fireDemo('demo2');">Modal 2</button>
+          <auro-modal id="demo1" header="Non-blocking Modal">Hello World!</auro-modal>
+          <auro-modal id="demo2" header="Blocking modal" blocking>Hello World!</auro-modal>
+
         </template>
       </demo-snippet>
+
+<script>
+  function fireDemo(elName) {
+      var upsell = document.getElementById(elName);
+      console.log("opening", upsell);
+      upsell.removeAttribute("open");
+      upsell.setAttribute("open", '');
+  }
+
+</script>
 
     </div>
   </body>

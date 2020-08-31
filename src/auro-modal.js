@@ -8,6 +8,7 @@ import { LitElement, html, css } from "lit-element";
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-css.js";
+import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -18,15 +19,23 @@ import styleCss from "./style-css.js";
 
 // build the component class
 class AuroModal extends LitElement {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+    this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
+    this.svg = this.dom.body.firstChild;
+  }
 
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      cssClass:   { type: String }
+      header: { type: String },
+      blocking: { type: Boolean },
+      open:   { type: Boolean }
     };
+  }
+
+  toggleViewable() {
+    this.open = !this.open;
   }
 
   static get styles() {
@@ -38,9 +47,27 @@ class AuroModal extends LitElement {
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
-      <div class=${this.cssClass}>
-        <slot></slot>
-      </div>
+            <div class="auro modal ${this.open ? 'modal-open' : ''}">
+              <div class="modal-overlay ${this.open ? 'open' : 'overlay-closed'} ${this.blocking ? 'blocking' : ''}">
+                <div class="main-modal-bottom ${this.open ? 'open' : 'modal-closed'} util_insetXxxl--squish">
+                  <div class="header-container">
+                    <div class="modal-header" id="modal-header">
+                      ${this.header}
+                    </div>
+                    ${this.blocking
+                    ? html``
+                     : html`
+                      <div class="modal-close" @click="${this.toggleViewable}" id="modal-close">
+                        ${this.svg}
+                      </div>
+                      `}
+                  </div>
+
+                  <slot name="modal-content" class="modal-container">
+                  </slot>
+                </div>
+              </div>
+            </div>
     `;
   }
 }
