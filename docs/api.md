@@ -2,24 +2,18 @@
 
 auro-modal provides users a way to ...
 
-## Attributes
-
-| Attribute  | Type     | Description                                  |
-|------------|----------|----------------------------------------------|
-| `cssClass` | `String` | Applies designated CSS class to DOM element. |
-
 ## Properties
 
-| Property   | Attribute  | Type         | Default      |
-|------------|------------|--------------|--------------|
-| `blocking` | `blocking` | `boolean`    |              |
-| `dom`      |            |              |              |
-| `header`   | `header`   | `string`     |              |
-| `open`     | `open`     | `boolean`    |              |
-| `svg`      |            | `any \| any` | "firstChild" |
+| Property   | Attribute  | Type         | Default      | Description                                      |
+|------------|------------|--------------|--------------|--------------------------------------------------|
+| `blocking` | `blocking` | `Boolean`    |              | Blocking modals force the user to take an action (no close button) |
+| `dom`      |            |              |              |                                                  |
+| `header`   | `header`   | `String`     |              | Text to display as the header of the modal.      |
+| `open`     | `open`     | `open`       |              | this attr forces the modal to open               |
+| `svg`      |            | `any \| any` | "firstChild" |                                                  |
 
 ## Methods
 
-| Method           | Type       |
-|------------------|------------|
-| `toggleViewable` | `(): void` |
+| Method           | Type               |
+|------------------|--------------------|
+| `toggleViewable` | `(evt: any): void` |
