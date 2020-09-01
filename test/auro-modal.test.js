@@ -1,5 +1,4 @@
-import { fixture, html, expect } from '@open-wc/testing';
-import sinon from 'sinon';
+import { fixture, html, expect, oneEvent } from '@open-wc/testing';
 import '../src/auro-modal.js';
 
 describe('auro-modal', () => {
@@ -35,7 +34,6 @@ describe('auro-modal', () => {
 
     const root = el.shadowRoot;
     const title = root.querySelector('#modal-close');
-    debugger;
     await expect(title).to.not.equal(null);
   });
   it('auro-modal renders a header', async () => {
@@ -45,7 +43,18 @@ describe('auro-modal', () => {
 
     const root = el.shadowRoot;
     const title = root.querySelector('#modal-header');
-    debugger;
     await expect(title.textContent).to.equal("\n                      Test\n                    ");
+  });
+  it('auro-modal closes on non-blocking background click', async () => {
+    const el = await fixture(html`
+      <auro-modal header="Test"></auro-modal>
+    `);
+
+    const root = el.shadowRoot;
+    const background = root.querySelector('#modal-overlay');
+    let listener = oneEvent(background, 'click');
+    background.click();
+    await listener;
+    expect(el.getAttribute('open')).to.equal(null);
   });
 });
