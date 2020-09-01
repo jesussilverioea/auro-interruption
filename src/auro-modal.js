@@ -14,7 +14,9 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 /**
  * auro-modal provides users a way to ...
  *
- * @attr {String} cssClass - Applies designated CSS class to DOM element.
+ * @attr {String} header - Text to display as the header of the modal.
+ * @attr {Boolean} blocking - Blocking modals force the user to take an action (no close button)
+ * @attr {open} open - this attr forces the modal to open
  */
 
 // build the component class
@@ -25,7 +27,7 @@ class AuroModal extends LitElement {
     this.svg = this.dom.body.firstChild;
   }
 
-  // function to define props used within the scope of thie component
+  // function to define props used within the scope of this component
   static get properties() {
     return {
       header: { type: String },
@@ -34,7 +36,8 @@ class AuroModal extends LitElement {
     };
   }
 
-  toggleViewable() {
+  toggleViewable(evt) {
+    evt.stopPropagation();
     this.open = !this.open;
   }
 
@@ -48,7 +51,8 @@ class AuroModal extends LitElement {
   render() {
     return html`
             <div class="auro modal ${this.open ? 'modal-open' : ''}">
-              <div class="modal-overlay ${this.open ? 'open' : 'overlay-closed'} ${this.blocking ? 'blocking' : ''}">
+              <div class="modal-overlay ${this.open ? 'open' : 'overlay-closed'} ${this.blocking ? 'blocking' : ''}"
+              @click=${this.blocking ? null : this.toggleViewable}>
                 <div class="main-modal-bottom ${this.open ? 'open' : 'modal-closed'} util_insetXxxl--squish">
                   <div class="header-container">
                     <div class="modal-header" id="modal-header">
@@ -62,7 +66,6 @@ class AuroModal extends LitElement {
                       </div>
                       `}
                   </div>
-
                   <slot name="modal-content" class="modal-container">
                   </slot>
                 </div>

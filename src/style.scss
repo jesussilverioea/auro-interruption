@@ -34,11 +34,6 @@ $auro-inset-directions:'';
   position: fixed;
   width: 100%;
   z-index: 9;
-  @include auro_breakpoint--lg {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-  }
 }
 
 .modal-overlay.open {
@@ -55,7 +50,7 @@ $auro-inset-directions:'';
   bottom: 0;
   justify-content: center;
   overflow: hidden;
-  padding: 32px;
+  padding: var(--auro-size-xl);
   position: absolute;
   text-align: center;
   width: 100%;
@@ -63,11 +58,15 @@ $auro-inset-directions:'';
   box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.1), -10px 0px 20px 0px rgba(0, 0, 0, 0.2);
   @include auro_breakpoint--lg {
     width: 986px;
+    position: absolute;
+    float: left;
+    left: 15%;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 }
 
 .main-modal-bottom.open {
-  transform: translateY(0px);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 0);
 }
 
