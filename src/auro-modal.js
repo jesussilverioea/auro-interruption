@@ -17,6 +17,8 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
  * @attr {String} header - Text to display as the header of the modal.
  * @attr {Boolean} blocking - Blocking modals force the user to take an action (no close button)
  * @attr {open} open - this attr forces the modal to open
+ * 
+ * @function toggleViewable - toggles the 'open' property on the element
  */
 
 // build the component class
