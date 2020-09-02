@@ -53,7 +53,11 @@ class AuroModal extends LitElement {
             <div class="auro modal ${this.open ? 'modal-open' : ''}">
               <div class="modal-overlay ${this.open ? 'open' : 'overlay-closed'} ${this.blocking ? 'blocking' : ''}"
               @click=${this.blocking ? null : this.toggleViewable} id="modal-overlay">
-                <div class="main-modal-bottom ${this.open ? 'open' : 'modal-closed'} util_insetXxxl--squish">
+                <div 
+                 class="main-modal-bottom ${this.open ? 'open' : 'modal-closed'} util_insetXxxl--squish"
+                 aria-modal="true"
+                 aria-labelledby="modal-header"
+                 >
                   <div class="header-container">
                     <div class="modal-header" id="modal-header">
                       ${this.header}
