@@ -13,13 +13,13 @@ $auro-inset-spacing-options: xxxs;
 $auro-inset-directions:'';
 @import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariableMap";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityMixins/insetUtility";
-// container styles - defines the look of the outer custom componet
+// container styles - defines the look of the outer custom component
 // :host {
 //   ...
 // }
 
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
-// never define layout that would cause effect on element ouside the scope of this component
+// never define layout that would cause effect on element outside the scope of this component
 
 
 // component shape styles
@@ -45,7 +45,7 @@ $auro-inset-directions:'';
   }
 }
 
-.main-modal-bottom { 
+.main-modal-bottom {
   background: var(--auro-color-background-lightest);
   bottom: 0;
   justify-content: center;
