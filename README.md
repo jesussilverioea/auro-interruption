@@ -1,6 +1,6 @@
 ## auro-modal
 
-`<auro-modal>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-modal>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for displaying content to a user in both a blocking (requiring user action other than clicking close, like a confirmation message) and non-blocking (user can close, like an upsell).
 
 ## UI development browser support
 
@@ -33,7 +33,7 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 Defining the component dependency within each component that is using the `<auro-modal>` component.
 
 ```javascript
-import "@alaskaairuxauro-modal";
+import "@alaskaairux/auro-modal";
 ```
 
 **Reference component in HTML**
@@ -69,9 +69,8 @@ The `polyfills.js` is packaged with this component, but **IT IS NOT NEEDED** to 
 
 The `<auro-modal>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* Be prompted to take an action before doing anything else or going back
+* Be prompted to view content with the option of closing it
 
 ## API Code Examples
 
