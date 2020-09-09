@@ -17,3 +17,9 @@ auro-modal provides users a way to ...
 | Method           | Type               |
 |------------------|--------------------|
 | `toggleViewable` | `(evt: any): void` |
+
+## Slots
+
+| Name            | Description                                 |
+|-----------------|---------------------------------------------|
+| `modal-content` | Injects content into the body of the modal. |
