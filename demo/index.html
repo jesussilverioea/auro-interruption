@@ -25,23 +25,23 @@
 
       <demo-snippet>
         <template>
-          <button onclick="fireDemo('demo1');">Modal 1</button>
-          <button onclick="fireDemo('demo2');">Modal 2</button>
+          <button onclick="fireDemo('#demo1');">Modal 1</button>
+          <button onclick="fireDemo('#demo2');">Modal 2</button>
           <auro-modal id="demo1" header="Non-blocking Modal">Hello World!</auro-modal>
           <auro-modal id="demo2" header="Blocking modal" blocking>Hello World!</auro-modal>
 
         </template>
       </demo-snippet>
 
-<script>
-  function fireDemo(elName) {
-      var upsell = document.getElementById(elName);
-      console.log("opening", upsell);
-      upsell.removeAttribute("open");
-      upsell.setAttribute("open", '');
-  }
-
-</script>
+      <script>
+          function fireDemo(elName) {
+              console.log("well i fired", elName);
+              var upsell = document.querySelector(elName);
+              console.log("opening", upsell);
+              upsell.removeAttribute("open");
+              upsell.setAttribute("open", true);
+          }
+        </script>
 
     </div>
   </body>

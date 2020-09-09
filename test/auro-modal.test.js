@@ -43,7 +43,7 @@ describe('auro-modal', () => {
 
     const root = el.shadowRoot;
     const title = root.querySelector('#modal-header');
-    await expect(title.textContent).to.equal("\n                      Test\n                    ");
+    await expect(title.textContent).to.equal("\n                    Test\n                  ");
   });
   it('auro-modal closes on non-blocking background click', async () => {
     const el = await fixture(html`

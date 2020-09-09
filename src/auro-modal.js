@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html, css } from "lit-element";
+import { classMap } from 'lit-html/directives/class-map';
 
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
@@ -17,7 +18,7 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
  * @attr {String} header - Text to display as the header of the modal.
  * @attr {Boolean} blocking - Blocking modals force the user to take an action (no close button)
  * @attr {open} open - this attr forces the modal to open
- *
+ * @slot modal-content - Injects content into the body of the modal.
  * @function toggleViewable - toggles the 'open' property on the element
  */
 
@@ -51,30 +52,37 @@ class AuroModal extends LitElement {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    return html`
-            <div class="auro modal ${this.open ? 'modal-open' : ''}">
-              <div class="modal-overlay ${this.open ? 'open' : 'overlay-closed'} ${this.blocking ? 'blocking' : ''}"
-              @click=${this.blocking ? null : this.toggleViewable} id="modal-overlay">
-                <div 
-                 class="main-modal-bottom ${this.open ? 'open' : 'modal-closed'} util_insetXxxl--squish"
-                 aria-modal="true"
-                 aria-labelledby="modal-header"
-                 >
-                  <div class="header-container">
-                    <div class="modal-header" id="modal-header">
-                      ${this.header}
-                    </div>
-                    ${this.blocking
+    const classes = {
+      'auro-modal': true,
+      'auro-modalBlocking': this.blocking,
+      'auro-modal--open': !this.blocking && this.open,
+      'auro-modalBlocking--open': this.blocking && this.open,
+    },
+
+     contentClasses = {
+      'util_insetXxxl--squish': true,
+      'modal': true,
+      'modal--open': this.open,
+    }
+
+
+return html`
+            <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
+              <div class="${classMap(contentClasses)}">
+                <div class="modalHeader">
+                  <div class="modalHeader--heading" id="modal-header">
+                    ${this.header}
+                  </div>
+                  ${this.blocking
                     ? html``
-                     : html`
-                      <div class="modal-close" @click="${this.toggleViewable}" id="modal-close">
+                    : html`
+                      <div class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
                         ${this.svg}
                       </div>
-                      `}
-                  </div>
-                  <slot name="modal-content" class="modal-container">
-                  </slot>
+                  `}
                 </div>
+                <slot name="modal-content">
+                </slot>
               </div>
             </div>
     `;

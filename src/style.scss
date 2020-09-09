@@ -9,6 +9,8 @@
 
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/core";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/animation";
+
 $auro-inset-spacing-options: xxxs;
 $auro-inset-directions:'';
 @import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariableMap";
@@ -22,30 +24,34 @@ $auro-inset-directions:'';
 // never define layout that would cause effect on element outside the scope of this component
 
 
-// component shape styles
-// .auro-modal {
-//   ...
-// }
+// container shape styles
+.auro-modal {
+    bottom: 0;
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
 
-.modal-overlay {
-  bottom: 0;
-  height: 100%;
-  left: 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 9;
+    &--open {
+      background: rgba(0, 0, 0, 0.2);
+      transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 0);
+      z-index: 9;
+    }
+    &Blocking {
+      &--open {
+        background: rgba(0, 0, 0, 0.5);
+        transition: background 0.3s cubic-bezier(0.4, 0, 0.5, 0);
+        z-index: 9;
+      }
+    }
 }
 
-.modal-overlay.open {
-  background: rgba(0, 0, 0, 0.2);
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 0);
+.modal {
+  @include auro_transition(all, 0.15s, ease);
 
-  &.blocking {
-    background: rgba(0, 0, 0, 0.5);
-  }
-}
-
-.main-modal-bottom {
   background: var(--auro-color-background-lightest);
   bottom: 0;
   justify-content: center;
@@ -54,58 +60,42 @@ $auro-inset-directions:'';
   position: absolute;
   text-align: center;
   width: 100%;
-  z-index: 10;
+  z-index: 0;
   box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.1), -10px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+
+  &--open {
+    transform: translateY(0%);
+    z-index: 10;
+  }
+
   @include auro_breakpoint--lg {
+    &--open {
+      transform: translateY(-75%);
+    }
     width: 986px;
-    position: absolute;
-    float: left;
-    left: 15%;
-    top: 50%;
-    transform: translate(0, -50%);
     padding: var(--auro-size-xxxl);
   }
+
 }
 
-.main-modal-bottom.open {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 0);
-}
-
-.modal-close {
-  height: 13px !important;
-  text-align: right;
-  width: 13px !important;
-}
-
-.modal-close svg {
-  fill: var(--auro-color-text-secondary-on-light);
-}
-
-.modal {
-  bottom: 0;
-}
-
-.overlay-closed {
-  background: rgba(0, 0, 0, 0);
-  transition: visibility 0.3s, background 0.3s;
-  transition-timing-function: cubic-bezier(0.2, 0, 0.4, 0);
-  visibility: hidden;
-  z-index: 0;
-}
-
-.modal-closed {
-  transition: transform 0.3s;
-  transition-timing-function: cubic-bezier(0.2, 0, 0.4, 0);
-  transform: translateY(100%);
-}
-
-.header-container {
+.modalHeader {
   display: flex;
   justify-content: space-between;
-}
 
-.modal-header {
-  display: inline-block;
-  font-size: var(--auro-text-heading-700-px-breakpoint-sm);
-  font-weight: var(--auro-text-body-default-weight);
+  &--heading {
+    display: inline-block;
+    font-size: var(--auro-text-heading-700-px-breakpoint-sm);
+    font-weight: var(--auro-text-body-default-weight);
+  }
+
+  &--action {
+    height: 13px !important;
+    text-align: right;
+    width: 13px !important;
+
+    & svg {
+        fill: var(--auro-color-text-secondary-on-light);
+    }
+  }
 }
