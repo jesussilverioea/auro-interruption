@@ -66,25 +66,25 @@ class AuroModal extends LitElement {
     }
 
 
-return html`
-            <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
-              <div class="${classMap(contentClasses)}">
-                <div class="modalHeader">
-                  <div class="modalHeader--heading" id="modal-header">
-                    ${this.header}
-                  </div>
-                  ${this.blocking
-                    ? html``
-                    : html`
-                      <div class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
-                        ${this.svg}
-                      </div>
-                  `}
-                </div>
-                <slot name="modal-content">
-                </slot>
-              </div>
+    return html`
+      <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
+        <div class="${classMap(contentClasses)}">
+          <div class="modalHeader">
+            <div class="modalHeader--heading" id="modal-header">
+              ${this.header}
             </div>
+            ${this.blocking
+              ? html``
+              : html`
+                <div class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
+                  ${this.svg}
+                </div>
+            `}
+          </div>
+          <slot name="modal-content">
+          </slot>
+        </div>
+      </div>
     `;
   }
 }

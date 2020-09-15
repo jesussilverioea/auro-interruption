@@ -61,7 +61,6 @@ $auro-inset-directions:'';
   text-align: center;
   width: 100%;
   z-index: 0;
-  box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.1), -10px 0px 20px 0px rgba(0, 0, 0, 0.2);
   transform: translateY(100%);
 
   &--open {
@@ -71,7 +70,8 @@ $auro-inset-directions:'';
 
   @include auro_breakpoint--lg {
     &--open {
-      transform: translateY(-75%);
+      top: 0;
+      box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.1), -10px 0px 20px 0px rgba(0, 0, 0, 0.2);
     }
     width: 986px;
     padding: var(--auro-size-xxxl);
