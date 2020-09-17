@@ -35,7 +35,22 @@ class AuroModal extends LitElement {
   static get properties() {
     return {
       blocking: { type: Boolean },
-      open:   { type: Boolean }
+      open:   { type: Boolean, reflect: true }
+    };
+  }
+
+  firstUpdated() {
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      var isEscape = false;
+      if ("key" in evt) {
+          isEscape = (evt.key === "Escape" || evt.key === "Esc");
+      } else {
+          isEscape = (evt.keyCode === 27);
+      }
+      if (isEscape) {
+          this.open = false;
+      }
     };
   }
 
@@ -69,17 +84,17 @@ class AuroModal extends LitElement {
     return html`
       <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
       </div>
-      <div class="${classMap(contentClasses)}">
+      <div class="${classMap(contentClasses)}" role="dialog" aria-labelledby="modal-header">
         <div class="modalHeader">
-          <h1 class="auro_heading auro_heading--700 modalHeader--noMargin">
+          <h1 class="auro_heading auro_heading--700 modalHeader--noMargin" id="modal-header">
             <slot name="modal-header"></slot>
           </h1>
           ${this.blocking
             ? html``
             : html`
-              <div class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
+              <button class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
                 ${this.svg}
-              </div>
+              </button>
           `}
         </div>
         <slot name="modal-content">
