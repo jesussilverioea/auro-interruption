@@ -4,7 +4,9 @@ import '../src/auro-modal.js';
 describe('auro-modal', () => {
   it('auro-modal is accessible', async () => {
     const el = await fixture(html`
-      <auro-modal></auro-modal>
+      <auro-modal>
+        <span slot="modal-header">Test</span>
+      </auro-modal>
     `);
 
     await expect(el).to.be.accessible();
@@ -36,18 +38,11 @@ describe('auro-modal', () => {
     const title = root.querySelector('#modal-close');
     await expect(title).to.not.equal(null);
   });
-  // it('auro-modal renders a header', async () => {
-  //   const el = await fixture(html`
-  //     <auro-modal header="Test"></auro-modal>
-  //   `);
-
-  //   const root = el.shadowRoot;
-  //   const title = root.querySelector('#modal-header');
-  //   await expect(title.textContent).to.equal("\n                    Test\n                  ");
-  // });
   it('auro-modal closes on non-blocking background click', async () => {
     const el = await fixture(html`
-      <auro-modal header="Test"></auro-modal>
+      <auro-modal>
+        <span slot="modal-header">Test</span>
+      </auro-modal>
     `);
 
     const root = el.shadowRoot;
