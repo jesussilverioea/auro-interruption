@@ -27,8 +27,14 @@
         <template>
           <button onclick="fireDemo('#demo1');">Non-blocking Modal</button>
           <button onclick="fireDemo('#demo2');">Blocking modal</button>
-          <auro-modal id="demo1" header="Non-blocking Modal">Hello World!</auro-modal>
-          <auro-modal id="demo2" header="Blocking modal" blocking>Hello World!</auro-modal>
+          <auro-modal id="demo1">
+            <span slot="modal-header">Non-blocking Modal</span>
+            <span slot="modal-content">Hello World!</span>
+          </auro-modal>
+          <auro-modal id="demo2" blocking>
+            <span slot="modal-header">Blocking Modal</span>
+            <span slot="modal-content">Hello World!</span>
+          </auro-modal>
 
         </template>
       </demo-snippet>
