@@ -71,9 +71,9 @@ class AuroModal extends LitElement {
       </div>
       <div class="${classMap(contentClasses)}">
         <div class="modalHeader">
-          <div class="modalHeader--heading" id="modal-header">
+          <h1 class="auro_heading auro_heading--700 modalHeader--noMargin">
             <slot name="modal-header"></slot>
-          </div>
+          </h1>
           ${this.blocking
             ? html``
             : html`

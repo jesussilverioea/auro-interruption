@@ -81,10 +81,9 @@ $auro-inset-directions:'';
   display: flex;
   justify-content: space-between;
 
-  &--heading {
-    display: inline-block;
-    font-size: var(--auro-text-heading-700-px-breakpoint-sm);
-    font-weight: var(--auro-text-body-default-weight);
+  &--noMargin {
+    margin-block-start: unset;
+    margin-block-end: unset;
   }
 
   &--action {
