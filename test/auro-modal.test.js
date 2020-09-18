@@ -5,7 +5,20 @@ describe('auro-modal', () => {
   it('auro-modal is accessible', async () => {
     const el = await fixture(html`
       <auro-modal>
-        <span slot="modal-header">Test</span>
+        <span slot="header">Blocking Modal</span>
+        <span slot="content">Hello World!</span>
+      </auro-modal>
+    `);
+
+    await expect(el).to.be.accessible();
+  });
+
+  it('auro-modal has footer content', async () => {
+    const el = await fixture(html`
+      <auro-modal>
+        <span slot="header">Blocking Modal</span>
+        <span slot="content">Hello World!</span>
+        <span slot="footer"><button>Click</button></span>
       </auro-modal>
     `);
 
@@ -26,9 +39,8 @@ describe('auro-modal', () => {
     const root = el.shadowRoot;
     const title = root.querySelector('#modal-close');
     await expect(title).to.equal(null);
-
-
   });
+
   it('auro-modal non-blocking renders a close icon', async () => {
     const el = await fixture(html`
       <auro-modal></auro-modal>
@@ -38,10 +50,12 @@ describe('auro-modal', () => {
     const title = root.querySelector('#modal-close');
     await expect(title).to.not.equal(null);
   });
+
   it('auro-modal closes on non-blocking background click', async () => {
     const el = await fixture(html`
       <auro-modal>
-        <span slot="modal-header">Test</span>
+        <span slot="header">It's a Modal</span>
+        <span slot="content">Hello World!</span>
       </auro-modal>
     `);
 
@@ -50,6 +64,6 @@ describe('auro-modal', () => {
     let listener = oneEvent(background, 'click');
     background.click();
     await listener;
-    expect(el.getAttribute('open')).to.equal(null);
+    expect(el.getAttribute('modalOverlay--open')).to.equal(null);
   });
 });

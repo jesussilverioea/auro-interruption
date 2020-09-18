@@ -26,27 +26,83 @@
       <demo-snippet>
         <template>
           <button onclick="fireDemo('#demo1');">Non-blocking Modal</button>
-          <button onclick="fireDemo('#demo2');">Blocking modal</button>
-          <auro-modal id="demo1">
-            <span slot="modal-header">Non-blocking Modal</span>
-            <span slot="modal-content">Hello World!</span>
-          </auro-modal>
-          <auro-modal id="demo2" blocking>
-            <span slot="modal-header">Blocking Modal</span>
-            <span slot="modal-content">Hello World!</span>
-          </auro-modal>
 
+          <auro-modal id="demo1">
+            <span slot="header">Non-blocking Modal</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#demo1');">Close</button>
+            </span>
+          </auro-modal>
         </template>
       </demo-snippet>
 
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#demo2');">Blocking modal</button>
+
+          <auro-modal id="demo2" blocking>
+            <span slot="header">Non-blocking Modal</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#demo2');">Close</button>
+            </span>
+          </auro-modal>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#demo3');">Non-Blocking modal</button>
+
+          <auro-modal id="demo3">
+            <span slot="header">Non-blocking Modal</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+          </auro-modal>
+        </template>
+      </demo-snippet>
+
+
       <script>
-          function fireDemo(elName) {
-              console.log("well i fired", elName);
-              var upsell = document.querySelector(elName);
-              console.log("opening", upsell);
-              upsell.removeAttribute("open");
-              upsell.setAttribute("open", true);
-          }
+        function fireDemo(elName) {
+          let modal = document.querySelector(elName);
+          modal.removeAttribute("open");
+          modal.setAttribute("open", true);
+        }
+
+        function closeDemo(elName) {
+          let modal = document.querySelector(elName);
+          modal.removeAttribute("open");
+        }
         </script>
 
     </div>

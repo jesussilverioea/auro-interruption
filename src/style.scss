@@ -10,11 +10,13 @@
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/core";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/animation";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/headings";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityClasses/displayProperties";
 
-$auro-inset-spacing-options: xxxs;
-$auro-inset-directions:'';
+$auro-spacing-types: stack;
+$auro-spacing-options: none;
 @import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariableMap";
-@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityMixins/insetUtility";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityMixins/spacingUtility";
 // container styles - defines the look of the outer custom component
 // :host {
 //   ...
@@ -25,74 +27,123 @@ $auro-inset-directions:'';
 
 
 // container shape styles
-.auro-modal {
-    bottom: 0;
-    height: 100%;
-    left: 0px;
-    position: fixed;
-    width: 100%;
-    z-index: -1;
+.modalOverlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+
+  &--open {
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 0);
+    z-index: var(--auro-depth-overlay);
+  }
+
+  &--blocking {
 
     &--open {
-      background: rgba(0, 0, 0, 0.2);
-      transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 0);
-      z-index: 9;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s cubic-bezier(0.4, 0, 0.5, 0);
+      z-index: var(--auro-depth-overlay);
     }
-    &Blocking {
-      &--open {
-        background: rgba(0, 0, 0, 0.5);
-        transition: background 0.3s cubic-bezier(0.4, 0, 0.5, 0);
-        z-index: 9;
-      }
-    }
+  }
+}
+
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal {
-  @include auro_transition(all, 0.15s, ease);
+  @include auro_transition(all, 0.3s, ease-in-out);
+
+  position: fixed;
+  display: block;
+  padding: var(--auro-size-xl);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  border: 0;
 
   background: var(--auro-color-background-lightest);
-  bottom: 0;
-  justify-content: center;
-  overflow: hidden;
-  padding: var(--auro-size-xl);
-  position: absolute;
-  text-align: center;
   width: 100%;
-  z-index: 0;
+  z-index: -1;
   transform: translateY(100%);
+  max-height: 90%;
+
+  overflow: auto;
 
   &--open {
+    opacity: 1;
     transform: translateY(0%);
-    z-index: 10;
+    z-index: var(--auro-depth-modal);
+  }
+
+  &-footer {
+    padding-top: var(--auro-size-xl);
+
+    @include auro_breakpoint--md {
+      ::slotted(*) {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  @include auro_breakpoint--md {
+    margin: auto;
+    position: fixed;
+    padding: var(--auro-size-xxxl);
+    left: auto;
+    bottom: auto;
+    right: auto;
+    top: 20%;
+    max-width: 80%;
+    max-height: 60%;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.12), 0 1px 10px 0 rgba(0,0,0,0.1);
+    transform: scale(0);
+
+    &--open {
+      transform: scale(1);
+    }
   }
 
   @include auro_breakpoint--lg {
-    &--open {
-      top: 0;
-      box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.1), -10px 0px 20px 0px rgba(0, 0, 0, 0.2);
-    }
-    width: 986px;
-    padding: var(--auro-size-xxxl);
+    max-width: 50%;
   }
 
+  @include auro_breakpoint($min: 1800px) {
+    max-width: 40%;
+  }
 }
 
-.modalHeader {
+.modal-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 
-  &--noMargin {
-    margin-block-start: unset;
-    margin-block-end: unset;
+  & svg {
+    fill: var(--auro-color-text-secondary-on-light);
   }
 
   &--action {
-    height: 13px !important;
-    text-align: right;
-    width: 13px !important;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: var(--auro-border-radius);
+    border: 2px solid transparent;
 
-    & svg {
-        fill: var(--auro-color-text-secondary-on-light);
+    &:focus {
+      border-color: var(--auro-color-border-active-on-light);
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }
+

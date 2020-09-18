@@ -39,7 +39,10 @@ import "@alaskaairux/auro-modal";
 **Reference component in HTML**
 
 ```html
-<auro-modal>Hello World</auro-modal>
+<auro-modal id="demo2">
+  <span slot="header">Modal</span>
+  <span slot="content">Hello World!</span>
+</auro-modal>
 ```
 
 ## Install bundled assets from CDN
@@ -71,14 +74,6 @@ The `<auro-modal>` element should be used in situations where users may:
 
 * Be prompted to take an action before doing anything else or going back
 * Be prompted to view content with the option of closing it
-
-## API Code Examples
-
-Default auro-modal
-
-```html
-<auro-modal>Hello World</auro-modal>
-```
 
 ## Development
 

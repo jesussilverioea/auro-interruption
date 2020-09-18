@@ -13,13 +13,16 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * auro-modal provides users a way to ...
+ * auro-modal appear above the page and require the user's attention.
  *
  * @attr {Boolean} blocking - Blocking modals force the user to take an action (no close button)
  * @attr {Object} svg - internal variable for holding the svg DOMElement. Do not use this.
- * @attr {open} open - this attr forces the modal to open
- * @slot modal-content - Injects content into the body of the modal.
- * @slot {String} header - Text to display as the header of the modal.
+ * @prop {String} dom - Internal property generates DOM from SVG string
+ * @prop {String} zero - Internal property to set zero value
+ * @attr {String} open - this attr forces the modal to open
+ * @slot header - Text to display as the header of the modal
+ * @slot content - Injects content into the body of the modal
+ * @slot footer - Used for action options, e.g. buttons
  * @function toggleViewable - toggles the 'open' property on the element
  */
 
@@ -29,31 +32,39 @@ class AuroModal extends LitElement {
     super();
     this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
     this.svg = this.dom.body.firstChild;
+    this.zero = 0;
   }
 
   // function to define props used within the scope of this component
   static get properties() {
     return {
       blocking: { type: Boolean },
-      open:   { type: Boolean, reflect: true }
+      open:   {
+        type: Boolean,
+        reflect: true
+        }
     };
   }
 
+  // This
   firstUpdated() {
-    document.onkeydown = function(evt) {
-      evt = evt || window.event;
-      var isEscape = false;
-      if ("key" in evt) {
-          isEscape = (evt.key === "Escape" || evt.key === "Esc");
-      } else {
-          isEscape = (evt.keyCode === 27);
-      }
-      if (isEscape) {
-          this.open = false;
-      }
-    };
+    const slot = this.shadowRoot.querySelector("#footer"),
+      slotWrapper = this.shadowRoot.querySelector("#footerWrapper");
+
+    this.slt = slot.assignedNodes();
+
+    if (this.slt.length === this.zero) {
+      return slotWrapper.classList.remove("modal-footer");
+    }
+
+    return null
   }
 
+  /**
+   * Private function for the purpose of determining open/close state of modal
+   * @param {object} evt - Accepts event
+   * @returns {boolean} - Returns open state
+   */
   toggleViewable(evt) {
     evt.stopPropagation();
     this.open = !this.open;
@@ -68,14 +79,13 @@ class AuroModal extends LitElement {
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     const classes = {
-      'auro-modal': true,
-      'auro-modalBlocking': this.blocking,
-      'auro-modal--open': !this.blocking && this.open,
-      'auro-modalBlocking--open': this.blocking && this.open,
+      'modalOverlay': true,
+      'modalOverlay--blocking': this.blocking,
+      'modalOverlay--open': !this.blocking && this.open,
+      'modalOverlay--blocking--open': this.blocking && this.open,
     },
 
      contentClasses = {
-      'util_insetXxxl--squish': true,
       'modal': true,
       'modal--open': this.open,
     }
@@ -84,21 +94,29 @@ class AuroModal extends LitElement {
     return html`
       <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
       </div>
-      <div class="${classMap(contentClasses)}" role="dialog" aria-labelledby="modal-header">
-        <div class="modalHeader">
-          <h1 class="auro_heading auro_heading--700 modalHeader--noMargin" id="modal-header">
-            <slot name="modal-header"></slot>
-          </h1>
-          ${this.blocking
-            ? html``
-            : html`
-              <button class="modalHeader--action" id="modal-close" @click="${this.toggleViewable}">
-                ${this.svg}
-              </button>
-          `}
-        </div>
-        <slot name="modal-content">
-        </slot>
+
+      <div class="modalWrapper">
+        <dialog class="${classMap(contentClasses)}" aria-labelledby="modal-header">
+          <div class="modal-header">
+            <h1 class="heading heading--700 util_stackMarginNone--top" id="modal-header">
+              <slot name="header">Default header ...</slot>
+            </h1>
+            ${this.blocking
+              ? html``
+              : html`
+                <button class="modal-header--action" id="modal-close" @click="${this.toggleViewable}">
+                  <div>${this.svg}</div>
+                  <div class="util_displayHiddenVisually">Click me to close</div>
+                </button>
+            `}
+          </div>
+          <div class="modal-content">
+            <slot name="content"></slot>
+          </div>
+          <div class="modal-footer" id="footerWrapper">
+            <slot name="footer" id="footer"></slot>
+          </div>
+        </dialog>
       </div>
     `;
   }
