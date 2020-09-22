@@ -1,69 +1,69 @@
 import { fixture, html, expect, oneEvent } from '@open-wc/testing';
-import '../src/auro-modal.js';
+import '../src/auro-dialog.js';
 
-describe('auro-modal', () => {
-  it('auro-modal is accessible', async () => {
+describe('auro-dialog', () => {
+  it('auro-dialog is accessible', async () => {
     const el = await fixture(html`
-      <auro-modal>
-        <span slot="header">Blocking Modal</span>
+      <auro-dialog>
+        <span slot="header">Blocking dialog</span>
         <span slot="content">Hello World!</span>
-      </auro-modal>
+      </auro-dialog>
     `);
 
     await expect(el).to.be.accessible();
   });
 
-  it('auro-modal has footer content', async () => {
+  it('auro-dialog has footer content', async () => {
     const el = await fixture(html`
-      <auro-modal>
-        <span slot="header">Blocking Modal</span>
+      <auro-dialog>
+        <span slot="header">Blocking dialog</span>
         <span slot="content">Hello World!</span>
         <span slot="footer"><button>Click</button></span>
-      </auro-modal>
+      </auro-dialog>
     `);
 
     await expect(el).to.be.accessible();
   });
 
-  it('auro-modal custom element is defined', async () => {
-    const el = await !!customElements.get("auro-modal");
+  it('auro-dialog custom element is defined', async () => {
+    const el = await !!customElements.get("auro-dialog");
 
     await expect(el).to.be.true;
   });
 
-  it('auro-modal blocking does not render a close icon', async () => {
+  it('auro-dialog blocking does not render a close icon', async () => {
     const el = await fixture(html`
-      <auro-modal blocking></auro-modal>
+      <auro-dialog modal></auro-dialog>
     `);
 
     const root = el.shadowRoot;
-    const title = root.querySelector('#modal-close');
+    const title = root.querySelector('#dialog-close');
     await expect(title).to.equal(null);
   });
 
-  it('auro-modal non-blocking renders a close icon', async () => {
+  it('auro-dialog non-blocking renders a close icon', async () => {
     const el = await fixture(html`
-      <auro-modal></auro-modal>
+      <auro-dialog></auro-dialog>
     `);
 
     const root = el.shadowRoot;
-    const title = root.querySelector('#modal-close');
+    const title = root.querySelector('#dialog-close');
     await expect(title).to.not.equal(null);
   });
 
-  it('auro-modal closes on non-blocking background click', async () => {
+  it('auro-dialog closes on non-blocking background click', async () => {
     const el = await fixture(html`
-      <auro-modal>
-        <span slot="header">It's a Modal</span>
+      <auro-dialog>
+        <span slot="header">It's a dialog</span>
         <span slot="content">Hello World!</span>
-      </auro-modal>
+      </auro-dialog>
     `);
 
     const root = el.shadowRoot;
-    const background = root.querySelector('#modal-overlay');
+    const background = root.querySelector('#dialog-overlay');
     let listener = oneEvent(background, 'click');
     background.click();
     await listener;
-    expect(el.getAttribute('modalOverlay--open')).to.equal(null);
+    expect(el.getAttribute('dialogOverlay--open')).to.equal(null);
   });
 });

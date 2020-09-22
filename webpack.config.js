@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const config = {
   entry: {
-    ['auro-modal__bundled']: './src/auro-modal.js'
+    ['auro-dialog__bundled']: './src/auro-dialog.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),

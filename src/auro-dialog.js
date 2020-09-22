@@ -13,9 +13,9 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * auro-modal appear above the page and require the user's attention.
+ * auro-dialog appear above the page and require the user's attention.
  *
- * @attr {Boolean} blocking - Blocking modals force the user to take an action (no close button)
+ * @attr {Boolean} modal - Modal dialog force the user to take an action (no close button)
  * @attr {Object} svg - internal variable for holding the svg DOMElement. Do not use this.
  * @prop {String} dom - Internal property generates DOM from SVG string
  * @prop {String} zero - Internal property to set zero value
@@ -27,7 +27,7 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
  */
 
 // build the component class
-class AuroModal extends LitElement {
+class AuroDialog extends LitElement {
   constructor() {
     super();
     this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
@@ -38,7 +38,7 @@ class AuroModal extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      blocking: { type: Boolean },
+      modal: { type: Boolean },
       open:   {
         type: Boolean,
         reflect: true
@@ -46,7 +46,7 @@ class AuroModal extends LitElement {
     };
   }
 
-  // This
+  // This function removes a CSS selector if the footer slot is empty
   firstUpdated() {
     const slot = this.shadowRoot.querySelector("#footer"),
       slotWrapper = this.shadowRoot.querySelector("#footerWrapper");
@@ -54,7 +54,7 @@ class AuroModal extends LitElement {
     this.slt = slot.assignedNodes();
 
     if (this.slt.length === this.zero) {
-      return slotWrapper.classList.remove("modal-footer");
+      return slotWrapper.classList.remove("dialog-footer");
     }
 
     return null
@@ -79,41 +79,41 @@ class AuroModal extends LitElement {
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     const classes = {
-      'modalOverlay': true,
-      'modalOverlay--blocking': this.blocking,
-      'modalOverlay--open': !this.blocking && this.open,
-      'modalOverlay--blocking--open': this.blocking && this.open,
+      'dialogOverlay': true,
+      'dialogOverlay--blocking': this.modal,
+      'dialogOverlay--open': !this.modal && this.open,
+      'dialogOverlay--blocking--open': this.modal && this.open,
     },
 
      contentClasses = {
-      'modal': true,
-      'modal--open': this.open,
+      'dialog': true,
+      'dialog--open': this.open,
     }
 
 
     return html`
-      <div class="${classMap(classes)}" id="modal-overlay" @click=${this.blocking ? null : this.toggleViewable}>
+      <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleViewable}>
       </div>
 
-      <div class="modalWrapper">
-        <dialog class="${classMap(contentClasses)}" aria-labelledby="modal-header">
-          <div class="modal-header">
-            <h1 class="heading heading--700 util_stackMarginNone--top" id="modal-header">
+      <div class="dialogWrapper">
+        <dialog class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
+          <div class="dialog-header">
+            <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
               <slot name="header">Default header ...</slot>
             </h1>
-            ${this.blocking
+            ${this.modal
               ? html``
               : html`
-                <button class="modal-header--action" id="modal-close" @click="${this.toggleViewable}">
+                <button class="dialog-header--action" id="dialog-close" @click="${this.toggleViewable}">
                   <div>${this.svg}</div>
                   <div class="util_displayHiddenVisually">Click me to close</div>
                 </button>
             `}
           </div>
-          <div class="modal-content">
+          <div class="dialog-content">
             <slot name="content"></slot>
           </div>
-          <div class="modal-footer" id="footerWrapper">
+          <div class="dialog-footer" id="footerWrapper">
             <slot name="footer" id="footer"></slot>
           </div>
         </dialog>
@@ -124,6 +124,6 @@ class AuroModal extends LitElement {
 
 /* istanbul ignore else */
 // define the name of the custom component
-if (!customElements.get("auro-modal")) {
-  customElements.define("auro-modal", AuroModal);
+if (!customElements.get("auro-dialog")) {
+  customElements.define("auro-dialog", AuroDialog);
 }

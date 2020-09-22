@@ -27,7 +27,7 @@ $auro-spacing-options: none;
 
 
 // container shape styles
-.modalOverlay {
+.dialogOverlay {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -51,13 +51,13 @@ $auro-spacing-options: none;
   }
 }
 
-.modalWrapper {
+.dialogWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal {
+.dialog {
   @include auro_transition(all, 0.3s, ease-in-out);
 
   position: fixed;
@@ -120,7 +120,7 @@ $auro-spacing-options: none;
   }
 }
 
-.modal-header {
+.dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

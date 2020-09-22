@@ -1,1 +1,1 @@
-export * from './dist/auro-modal';
+export * from './dist/auro-dialog';

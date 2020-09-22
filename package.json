@@ -7,13 +7,13 @@
     "  3. Go to http://localhost:3001",
     "================================================================================"
   ],
-  "name": "@alaskaairux/auro-modal",
+  "name": "@alaskaairux/auro-dialog",
   "version": "0.0.0",
-  "description": "Auro custom auro-modal element",
+  "description": "Auro custom auro-dialog element",
   "author": "Product design and research",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlaskaAirlines/auro-modal"
+    "url": "https://github.com/AlaskaAirlines/auro-dialog"
   },
   "main": "index.js",
   "license": "Apache-2.0",
@@ -89,7 +89,7 @@
   ],
   "scripts": {
     "build": "npm run ciBuild",
-    "apiBuild": "wca analyze 'src/auro-modal.js' --outFiles docs/api.md",
+    "apiBuild": "wca analyze 'src/auro-dialog.js' --outFiles docs/api.md",
     "bundler": "webpack --mode=production",
     "bundle:test": "webpack-dev-server --host 0.0.0.0",
     "postinstall": "node packageScripts/postinstall.js",
