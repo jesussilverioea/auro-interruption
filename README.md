@@ -1,6 +1,6 @@
-## auro-modal
+## auro-dialog
 
-`<auro-modal>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-dialog>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for displaying content to a user in both a blocking (requiring user action other than clicking close, like a confirmation message) and non-blocking (user can close, like an upsell).
 
 ## UI development browser support
 
@@ -8,12 +8,12 @@ For the most up to date information on [UI development browser support](https://
 
 ## Install
 
-[![Build Status](https://img.shields.io/travis/AlaskaAirlines/auro-modal?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/auro-modal)
-[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-modal?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/auro-modal)
-[![License](https://img.shields.io/npm/l/@alaskaairux/auro-modal?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://img.shields.io/travis/AlaskaAirlines/auro-dialog?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/auro-dialog)
+[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-dialog?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/auro-dialog)
+[![License](https://img.shields.io/npm/l/@alaskaairux/auro-dialog?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-$ npm i @alaskaairux/auro-modal
+$ npm i @alaskaairux/auro-dialog
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -30,16 +30,19 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 
 ### Define dependency in project component
 
-Defining the component dependency within each component that is using the `<auro-modal>` component.
+Defining the component dependency within each component that is using the `<auro-dialog>` component.
 
 ```javascript
-import "@alaskaairuxauro-modal";
+import "@alaskaairux/auro-dialog";
 ```
 
 **Reference component in HTML**
 
 ```html
-<auro-modal>Hello World</auro-modal>
+<auro-dialog id="demo2">
+  <span slot="header">Modal</span>
+  <span slot="content">Hello World!</span>
+</auro-dialog>
 ```
 
 ## Install bundled assets from CDN
@@ -52,8 +55,8 @@ In cases where the project is not able to process JS assets, there are pre-proce
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-design-tokens@:version/dist/tokens/CSSTokenProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-web-core-style-sheets@:version/dist/bundled/baseline.css" />
 
-<script src="https://unpkg.com/@alaskaairuxauro-modal@:version/dist/polyfills.js"></script>
-<script src="https://unpkg.com/@alaskaairuxauro-modal@:version/dist/auro-modal__bundled.js"></script>
+<script src="https://unpkg.com/@alaskaairuxauro-dialog@:version/dist/polyfills.js"></script>
+<script src="https://unpkg.com/@alaskaairuxauro-dialog@:version/dist/auro-dialog__bundled.js"></script>
 ```
 
 ### polyfills.js
@@ -65,21 +68,12 @@ The `polyfills.js` is packaged with this component, but **IT IS NOT NEEDED** to 
 **Displaimer:** While these components are supported in IE, there may be issues with loading the [web components polyfill](https://www.webcomponents.org/polyfills). Please consult their documentation when supporting IE11.
 
 
-## auro-modal use cases
+## auro-dialog use cases
 
-The `<auro-modal>` element should be used in situations where users may:
+The `<auro-dialog>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
-
-## API Code Examples
-
-Default auro-modal
-
-```html
-<auro-modal>Hello World</auro-modal>
-```
+* Be prompted to take an action before doing anything else or going back
+* Be prompted to view content with the option of closing it
 
 ## Development
 
@@ -104,4 +98,4 @@ $ npm run serve
 Open [localhost:3001](http://localhost:3001/)
 
 ### Testing
-Automated tests are required for every Auro component. See `.\test\auro-modal.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
+Automated tests are required for every Auro component. See `.\test\auro-dialog.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.

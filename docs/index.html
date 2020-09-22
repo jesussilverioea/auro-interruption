@@ -51,7 +51,8 @@
     }
 
     var auroModal = [
-      '<auro-modal cssClass="testClass">Hello World</auro-modal>'
+      '<auro-modal id="demo1" header="Non-blocking Modal">Hello World!</auro-modal>',
+      '<auro-modal id="demo2" header="Blocking modal" blocking>Hello World!</auro-modal>'
     ]
   </script>
 </head>
@@ -62,6 +63,9 @@
     <p>The following examples illustrate the auro-modal APIs used within any web app.</p>
     <section class="wc-wrapper">
       <h3>auro-modal: default</h3>
+      <p>Note: Blocking modals require the implementing application to add and remove the 'open' attribute to the element.</p>
+      <button onclick="fireDemo('demo1');">Modal 1</button>
+      <button onclick="fireDemo('demo2');">Modal 2</button>
       <script>
         for (i = 0; i < auroModal.length; i++) {
           document.write(auroModal[i])
@@ -77,7 +81,15 @@
         </code>
       </div>
     </section>
-
+    <script>
+      function fireDemo(elName) {
+          var upsell = document.getElementById(elName);
+          console.log("opening", upsell);
+          upsell.removeAttribute("open");
+          upsell.setAttribute("open", '');
+      }
+    
+    </script>
   </main>
   <div id="assets">
     <link rel="stylesheet"

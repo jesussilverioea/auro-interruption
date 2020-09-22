@@ -6,13 +6,13 @@
       name="viewport"
       content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
     />
-    <title>Auro Web Component Generator | auro-modal custom element</title>
+    <title>Auro Web Component Generator | auro-dialog custom element</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module">
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
-    <script type="module" src="../src/auro-modal.js"></script>
+    <script type="module" src="../src/auro-dialog.js"></script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles"></style>
     </custom-style>
@@ -21,13 +21,89 @@
   </head>
   <body>
     <div class="vertical-section-container">
-      <h1>auro-modal</h1>
+      <h1>auro-dialog</h1>
 
       <demo-snippet>
         <template>
-          <auro-modal cssClass="testClass">Hello World!</auro-modal>
+          <button onclick="fireDemo('#demo1');">Open Dialog</button>
+
+          <auro-dialog id="demo1">
+            <span slot="header">Dialog (non-blocking) w/footer</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#demo1');">Close</button>
+            </span>
+          </auro-dialog>
         </template>
       </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#demo2');">Open Modal Dialog</button>
+
+          <auro-dialog id="demo2" modal>
+            <span slot="header">Modal Dialog (blocking) w/footer</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#demo2');">Close</button>
+            </span>
+          </auro-dialog>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#demo3');">Open Dialog</button>
+
+          <auro-dialog id="demo3">
+            <span slot="header">Dialog (non-blocking) w/o footer</span>
+            <span slot="content">
+              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+
+              <ul>
+                <li>Size: H 250mm, W 420mm, D 250mm</li>
+                <li>Material: Solid oak, hand-made in Finland</li>
+              </ul>
+
+              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+            </span>
+          </auro-dialog>
+        </template>
+      </demo-snippet>
+
+
+      <script>
+        function fireDemo(elName) {
+          let dialog = document.querySelector(elName);
+          dialog.removeAttribute("open");
+          dialog.setAttribute("open", true);
+        }
+
+        function closeDemo(elName) {
+          let dialog = document.querySelector(elName);
+          dialog.removeAttribute("open");
+        }
+        </script>
 
     </div>
   </body>
