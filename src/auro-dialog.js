@@ -61,7 +61,7 @@ class AuroDialog extends LitElement {
   }
 
   /**
-   * Private function for the purpose of determining open/close state of modal
+   * @private function for the purpose of determining open/close state of modal
    * @param {object} evt - Accepts event
    * @returns {boolean} - Returns open state
    */

@@ -12,12 +12,6 @@ auro-dialog appear above the page and require the user's attention.
 | `svg`    | `svg`     | `Object`  | "firstChild" | internal variable for holding the svg DOMElement. Do not use this. |
 | `zero`   |           | `String`  | 0            | Internal property to set zero value              |
 
-## Methods
-
-| Method           | Type                     | Description                                      |
-|------------------|--------------------------|--------------------------------------------------|
-| `toggleViewable` | `(evt: object): boolean` | Private function for the purpose of determining open/close state of modal<br /><br />**evt**: Accepts event |
-
 ## Slots
 
 | Name      | Description                                |
