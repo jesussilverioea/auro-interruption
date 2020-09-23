@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.1](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.0.0...v1.0.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* address position bug ([1d7a2c8](https://github.com/AlaskaAirlines/auro-dialog/commit/1d7a2c88096653d70bcab30556fe1213ff77a7a8))
+
 # 1.0.0 (2020-09-22)
 
 
