@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>auro-modal API examples and bundled install support</title>
+  <title>auro-dialog API examples and bundled install support</title>
   <style>
     main {
       width: 80%;
@@ -19,7 +19,7 @@
       }
     }
 
-    .wc-wrapper auro-modal {
+    .wc-wrapper auro-dialog {
       display: inline-block;
       margin-bottom: var(--auro-size-md);
       margin-right: var(--auro-size-md);
@@ -51,18 +51,18 @@
     }
 
     var auroModal = [
-      '<auro-modal id="demo1" header="Non-blocking Modal">Hello World!</auro-modal>',
-      '<auro-modal id="demo2" header="Blocking modal" blocking>Hello World!</auro-modal>'
+      '<auro-dialog id="demo1" header="Non-blocking Modal">Hello World!</auro-dialog>',
+      '<auro-dialog id="demo2" header="Blocking modal" blocking>Hello World!</auro-dialog>'
     ]
   </script>
 </head>
 
 <body>
   <main>
-    <h1>auro-modal API examples</h1>
-    <p>The following examples illustrate the auro-modal APIs used within any web app.</p>
+    <h1>auro-dialog API examples</h1>
+    <p>The following examples illustrate the auro-dialog APIs used within any web app.</p>
     <section class="wc-wrapper">
-      <h3>auro-modal: default</h3>
+      <h3>auro-dialog: default</h3>
       <p>Note: Blocking modals require the implementing application to add and remove the 'open' attribute to the element.</p>
       <button onclick="fireDemo('demo1');">Modal 1</button>
       <button onclick="fireDemo('demo2');">Modal 2</button>
@@ -88,7 +88,7 @@
           upsell.removeAttribute("open");
           upsell.setAttribute("open", '');
       }
-    
+
     </script>
   </main>
   <div id="assets">
@@ -100,12 +100,12 @@
 
     <!-- for initial build and test only -->
     <script src="./polyfills.js"></script>
-    <script src="./auro-modal__bundled.js"></script>
+    <script src="./auro-dialog__bundled.js"></script>
 
     <!-- once first build has been released, update with the links below -->
     <!-- Be sure to update the :version number -->
-    <!-- <script src="https://unpkg.com/@alaskaairux/auro-modal@:version/dist/polyfills.js"></script>
-    <script src="https://unpkg.com/@alaskaairux/auro-modal@:version/dist/auro-modal__bundled.js"></script> -->
+    <!-- <script src="https://unpkg.com/@alaskaairux/auro-dialog@:version/dist/polyfills.js"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-dialog@:version/dist/auro-dialog__bundled.js"></script> -->
   </div>
 </body>
 
