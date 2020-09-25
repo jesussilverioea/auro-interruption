@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.0.1...v1.1.0) (2020-09-25)
+
+
+### Features
+
+* add toggle event call to toggleViewable ([417df59](https://github.com/AlaskaAirlines/auro-dialog/commit/417df59e3ef70779ddc20b2e3319f140001b03cb))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.0.0...v1.0.1) (2020-09-23)
 
 
