@@ -66,8 +66,12 @@ class AuroDialog extends LitElement {
    * @returns {boolean} - Returns open state
    */
   toggleViewable(evt) {
+    const toggleEvent = document.createEvent("HTMLEvents");
+
+    toggleEvent.initEvent("toggle", true, false);
     evt.stopPropagation();
     this.open = !this.open;
+    this.dispatchEvent(toggleEvent);
   }
 
   static get styles() {
