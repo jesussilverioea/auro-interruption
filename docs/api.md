@@ -2,15 +2,19 @@
 
 auro-dialog appear above the page and require the user's attention.
 
+## Attributes
+
+| Attribute | Type      | Description                     |
+|-----------|-----------|---------------------------------|
+| `md`      | `Boolean` | Sets dialog box to medium style |
+| `sm`      | `Boolean` | Sets dialog box to small style  |
+
 ## Properties
 
-| Property | Attribute | Type      | Default      | Description                                      |
-|----------|-----------|-----------|--------------|--------------------------------------------------|
-| `dom`    |           | `String`  |              | Internal property generates DOM from SVG string  |
-| `modal`  | `modal`   | `Boolean` |              | Modal dialog force the user to take an action (no close button) |
-| `open`   | `open`    | `String`  |              | this attr forces the modal to open               |
-| `svg`    | `svg`     | `Object`  | "firstChild" | internal variable for holding the svg DOMElement. Do not use this. |
-| `zero`   |           | `String`  | 0            | Internal property to set zero value              |
+| Property | Attribute | Type      | Description                                      |
+|----------|-----------|-----------|--------------------------------------------------|
+| `modal`  | `modal`   | `Boolean` | Modal dialog restricts the user to take an action (no default close actions) |
+| `open`   | `open`    | `Boolean` | Sets state of dialog to open                     |
 
 ## Slots
 

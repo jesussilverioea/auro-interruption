@@ -15,11 +15,10 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 /**
  * auro-dialog appear above the page and require the user's attention.
  *
- * @attr {Boolean} modal - Modal dialog force the user to take an action (no close button)
- * @attr {Object} svg - internal variable for holding the svg DOMElement. Do not use this.
- * @prop {String} dom - Internal property generates DOM from SVG string
- * @prop {String} zero - Internal property to set zero value
- * @attr {String} open - this attr forces the modal to open
+ * @attr {Boolean} modal - Modal dialog restricts the user to take an action (no default close actions)
+ * @attr {Boolean} sm - Sets dialog box to small style
+ * @attr {Boolean} md - Sets dialog box to medium style
+ * @attr {Boolean} open - Sets state of dialog to open
  * @slot header - Text to display as the header of the modal
  * @slot content - Injects content into the body of the modal
  * @slot footer - Used for action options, e.g. buttons
@@ -30,8 +29,20 @@ import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 class AuroDialog extends LitElement {
   constructor() {
     super();
+
+    /**
+     * @private internal variable
+     */
     this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
+
+    /**
+     * @private internal variable
+     */
     this.svg = this.dom.body.firstChild;
+
+    /**
+     * @private internal variable
+     */
     this.zero = 0;
   }
 
@@ -67,6 +78,13 @@ class AuroDialog extends LitElement {
    */
   toggleViewable(evt) {
     const toggleEvent = document.createEvent("HTMLEvents");
+    const body = document.body;
+    const scrollY = body.style.top;
+
+    body.style.position = '';
+    body.style.top = '';
+
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
 
     toggleEvent.initEvent("toggle", true, false);
     evt.stopPropagation();
@@ -84,9 +102,8 @@ class AuroDialog extends LitElement {
   render() {
     const classes = {
       'dialogOverlay': true,
-      'dialogOverlay--blocking': this.modal,
-      'dialogOverlay--open': !this.modal && this.open,
-      'dialogOverlay--blocking--open': this.modal && this.open,
+      'dialogOverlay--modal': this.modal && this.open,
+      'dialogOverlay--open': this.open
     },
 
      contentClasses = {
@@ -99,29 +116,27 @@ class AuroDialog extends LitElement {
       <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleViewable}>
       </div>
 
-      <div class="dialogWrapper">
-        <dialog class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
-          <div class="dialog-header">
-            <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
-              <slot name="header">Default header ...</slot>
-            </h1>
-            ${this.modal
-              ? html``
-              : html`
-                <button class="dialog-header--action" id="dialog-close" @click="${this.toggleViewable}">
-                  <div>${this.svg}</div>
-                  <div class="util_displayHiddenVisually">Click me to close</div>
-                </button>
-            `}
-          </div>
-          <div class="dialog-content">
-            <slot name="content"></slot>
-          </div>
-          <div class="dialog-footer" id="footerWrapper">
-            <slot name="footer" id="footer"></slot>
-          </div>
-        </dialog>
-      </div>
+      <dialog class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
+        <div class="dialog-header">
+          <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
+            <slot name="header">Default header ...</slot>
+          </h1>
+          ${this.modal
+            ? html``
+            : html`
+              <button class="dialog-header--action" id="dialog-close" @click="${this.toggleViewable}">
+                <div>${this.svg}</div>
+                <div class="util_displayHiddenVisually">Click me to close</div>
+              </button>
+          `}
+        </div>
+        <div class="dialog-content">
+          <slot name="content"></slot>
+        </div>
+        <div class="dialog-footer" id="footerWrapper">
+          <slot name="footer" id="footer"></slot>
+        </div>
+      </dialog>
     `;
   }
 }

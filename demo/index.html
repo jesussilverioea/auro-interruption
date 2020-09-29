@@ -13,6 +13,7 @@
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
     <script type="module" src="../src/auro-dialog.js"></script>
+    <script type="module" src="contentExamples/longtext.js"></script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles"></style>
     </custom-style>
@@ -23,73 +24,178 @@
     <div class="vertical-section-container">
       <h1>auro-dialog</h1>
 
+      <h2>auro-dialog sm example</h2>
       <demo-snippet>
         <template>
-          <button onclick="fireDemo('#demo1');">Open Dialog</button>
+          <button onclick="fireDemo('#small');">Small Dialog</button>
 
-          <auro-dialog id="demo1">
-            <span slot="header">Dialog (non-blocking) w/footer</span>
+          <auro-dialog id="small" sm>
+            <span slot="header">Dialog w/footer</span>
             <span slot="content">
-              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
-
-              <ul>
-                <li>Size: H 250mm, W 420mm, D 250mm</li>
-                <li>Material: Solid oak, hand-made in Finland</li>
-              </ul>
-
-              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+              <long-text count="500"></long-text>
             </span>
 
             <span slot="footer">
-              <button onclick="closeDemo('#demo1');">Close</button>
+              <button onclick="closeDemo('#small');">Close</button>
             </span>
           </auro-dialog>
-        </template>
-      </demo-snippet>
 
-      <demo-snippet>
-        <template>
-          <button onclick="fireDemo('#demo2');">Open Modal Dialog</button>
+          <button onclick="fireDemo('#smallLong');">Small Dialog loooooong text</button>
 
-          <auro-dialog id="demo2" modal>
-            <span slot="header">Modal Dialog (blocking) w/footer</span>
+          <auro-dialog id="smallLong" sm>
+            <span slot="header">Dialog w/footer</span>
             <span slot="content">
-              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
-
-              <ul>
-                <li>Size: H 250mm, W 420mm, D 250mm</li>
-                <li>Material: Solid oak, hand-made in Finland</li>
-              </ul>
-
-              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+              <long-text count="5000"></long-text>
             </span>
 
             <span slot="footer">
-              <button onclick="closeDemo('#demo2');">Close</button>
+              <button onclick="closeDemo('#smallLong');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#smallNoFoot');">small Dialog w/o footer</button>
+
+          <auro-dialog id="smallNoFoot" sm>
+            <span slot="header">Dialog w/o footer</span>
+            <span slot="content">
+              <long-text count="500"></long-text>
             </span>
           </auro-dialog>
         </template>
       </demo-snippet>
 
+
+      <!-- -->
+
+      <h2>auro-dialog md example</h2>
       <demo-snippet>
         <template>
-          <button onclick="fireDemo('#demo3');">Open Dialog</button>
+          <button onclick="fireDemo('#medium');">Medium Dialog</button>
 
-          <auro-dialog id="demo3">
-            <span slot="header">Dialog (non-blocking) w/o footer</span>
+          <auro-dialog id="medium" md>
+            <span slot="header">Dialog w/footer</span>
             <span slot="content">
-              <p>Kulma, corner in Finnish, is a shelf to be hanged either in a positive or a negative corner of a room. The idea is to utilize and highlight both the space within the shelf and the corner surrounding the shelf.</p>
+              <long-text count="500"></long-text>
+            </span>
 
-              <ul>
-                <li>Size: H 250mm, W 420mm, D 250mm</li>
-                <li>Material: Solid oak, hand-made in Finland</li>
-              </ul>
+            <span slot="footer">
+              <button onclick="closeDemo('#medium');">Close</button>
+            </span>
+          </auro-dialog>
 
-              <p>Produced by Martina Carpelan, designed together with Hong Ngo in 2006</p>
+          <button onclick="fireDemo('#mediumLong');">Medium Dialog loooooong text</button>
+
+          <auro-dialog id="mediumLong" md>
+            <span slot="header">Dialog w/footer</span>
+            <span slot="content">
+              <long-text count="5000"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#mediumLong');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#mediumNoFoot');">Medium Dialog w/o footer</button>
+
+          <auro-dialog id="mediumNoFoot" md>
+            <span slot="header">Dialog w/footer</span>
+            <span slot="content">
+              <long-text count="500"></long-text>
             </span>
           </auro-dialog>
         </template>
       </demo-snippet>
+
+      <!-- -->
+
+      <h2>auro-dialog default example</h2>
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#default');">Default Dialog</button>
+
+          <auro-dialog id="default">
+            <span slot="header">Dialog w/footer</span>
+            <span slot="content">
+              <long-text count="500"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#default');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#defaultLong');">Default Dialog loooooong text</button>
+
+          <auro-dialog id="defaultLong">
+            <span slot="header">Dialog w/footer</span>
+            <span slot="content">
+              <long-text count="5000"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#defaultLong');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#defaultNoFoot');">Default Dialog w/o footer</button>
+
+          <auro-dialog id="defaultNoFoot">
+            <span slot="header">Dialog w/footer</span>
+            <span slot="content">
+              <long-text count="500"></long-text>
+            </span>
+          </auro-dialog>
+        </template>
+      </demo-snippet>
+
+      <!-- -->
+
+      <h2>auro-dialog full page example</h2>
+      <demo-snippet>
+        <template>
+          <button onclick="fireDemo('#dialogDynamicHeight');">Dynamic Dialog</button>
+
+          <auro-dialog id="dialogDynamicHeight" dynamic>
+            <span slot="header">Dynamic size</span>
+            <span slot="content">
+              <long-text count="8000"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#dialogDynamicHeight');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#dialogDynamicHeightmd');">Dynamic Dialog medium</button>
+
+          <auro-dialog id="dialogDynamicHeightmd" dynamic md>
+            <span slot="header">Dynamic size</span>
+            <span slot="content">
+              <long-text count="8000"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#dialogDynamicHeightmd');">Close</button>
+            </span>
+          </auro-dialog>
+
+          <button onclick="fireDemo('#dialogDynamicHeightsm');">Dynamic Dialog small</button>
+
+          <auro-dialog id="dialogDynamicHeightsm" dynamic sm>
+            <span slot="header">Dynamic size</span>
+            <span slot="content">
+              <long-text count="8000"></long-text>
+            </span>
+
+            <span slot="footer">
+              <button onclick="closeDemo('#dialogDynamicHeightsm');">Close</button>
+            </span>
+          </auro-dialog>
+        </template>
+      </demo-snippet>
+
+
 
 
       <script>
