@@ -31,6 +31,13 @@ class AuroDialog extends LitElement {
     super();
 
     /**
+     * @private event listener to address value of --scroll-y
+     */
+    window.addEventListener('scroll', () => {
+      document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+    });
+
+    /**
      * @private internal variable
      */
     this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
@@ -72,17 +79,17 @@ class AuroDialog extends LitElement {
   }
 
   /**
-   * @private function for the purpose of determining open/close state of modal
+   * @private function for the purpose of determining open/close state of modal and locking page scroll when dialog is open
    * @param {object} evt - Accepts event
    * @returns {boolean} - Returns open state
    */
   toggleViewable(evt) {
-    const toggleEvent = document.createEvent("HTMLEvents");
-    const body = document.body;
-    const scrollY = body.style.top;
+    const toggleEvent = document.createEvent("HTMLEvents"),
+      body = document.body,
+      scrollY = body.style.top;
 
-    body.style.position = '';
-    body.style.top = '';
+    body.style.position = 'unset';
+    body.style.top = 'unset';
 
     window.scrollTo(0, parseInt(scrollY || '0') * -1);
 
