@@ -161,7 +161,7 @@ module.exports = {
       "no-self-compare": "error",
       "no-sequences": "error",
       "no-setter-return": "error",
-      "no-shadow": "error",
+      "no-shadow": "off",
       "no-spaced-func": "error",
       "no-sync": "error",
       "no-tabs": "error",

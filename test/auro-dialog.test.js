@@ -1,10 +1,11 @@
 import { fixture, html, expect, oneEvent } from '@open-wc/testing';
+import sinon from 'sinon';
 import '../src/auro-dialog.js';
 
 describe('auro-dialog', () => {
   it('auro-dialog is accessible', async () => {
     const el = await fixture(html`
-      <auro-dialog>
+      <auro-dialog open="true">
         <span slot="header">Blocking dialog</span>
         <span slot="content">Hello World!</span>
       </auro-dialog>
@@ -15,7 +16,7 @@ describe('auro-dialog', () => {
 
   it('auro-dialog has footer content', async () => {
     const el = await fixture(html`
-      <auro-dialog>
+      <auro-dialog open="true">
         <span slot="header">Blocking dialog</span>
         <span slot="content">Hello World!</span>
         <span slot="footer"><button>Click</button></span>
@@ -65,5 +66,19 @@ describe('auro-dialog', () => {
     background.click();
     await listener;
     expect(el.getAttribute('dialogOverlay--open')).to.equal(null);
+  });
+
+  it('auro-dialog sets dialog--open', async () => {
+    const el = await fixture(html`
+      <auro-dialog open="true">
+        <span slot="header">It's a dialog</span>
+        <span slot="content">Hello World!</span>
+      </auro-dialog>
+    `);
+
+    const dialog = el.shadowRoot.querySelector('#dialog');
+
+    expect(dialog).to.have.class('dialog--open');
+    expect(dialog).to.have.attribute('aria-hidden', 'false');
   });
 });

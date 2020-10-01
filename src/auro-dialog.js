@@ -31,13 +31,6 @@ class AuroDialog extends LitElement {
     super();
 
     /**
-     * @private event listener to address value of --scroll-y
-     */
-    window.addEventListener('scroll', () => {
-      document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-    });
-
-    /**
      * @private internal variable
      */
     this.dom = new DOMParser().parseFromString(closeIcon.svg, 'text/html');
@@ -51,6 +44,12 @@ class AuroDialog extends LitElement {
      * @private internal variable
      */
     this.zero = 0;
+
+    /**
+     * @private internal variable set state of aria-hidden
+     * @returns {string} - Value is opposite of this.open state
+     */
+    this.ariaHiddenState = 'true';
   }
 
   // function to define props used within the scope of this component
@@ -69,6 +68,7 @@ class AuroDialog extends LitElement {
     const slot = this.shadowRoot.querySelector("#footer"),
       slotWrapper = this.shadowRoot.querySelector("#footerWrapper");
 
+    this.dialog = this.shadowRoot.getElementById('dialog');
     this.slt = slot.assignedNodes();
 
     if (this.slt.length === this.zero) {
@@ -85,18 +85,57 @@ class AuroDialog extends LitElement {
    */
   toggleViewable(evt) {
     const toggleEvent = document.createEvent("HTMLEvents"),
-      body = document.body,
-      scrollY = body.style.top;
+      html = document.querySelector('html');
 
-    body.style.position = 'unset';
-    body.style.top = 'unset';
-
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
-
+    html.style.overflow = '';
     toggleEvent.initEvent("toggle", true, false);
     evt.stopPropagation();
     this.open = !this.open;
     this.dispatchEvent(toggleEvent);
+  }
+
+  /**
+   * @private function for the purpose of setting visual state of the dialog
+   * @returns {string} - Returns CSS selector
+   */
+  display() {
+    if (this.open) {
+      setTimeout(() => {
+        this.dialog.classList.remove('dialog--hidden');
+      }, 1);
+
+      setTimeout(() => {
+        this.dialog.classList.add('dialog--open');
+      }, 20);
+    } else {
+      setTimeout(() => {
+        this.dialog.classList.remove('dialog--open');
+      }, 1);
+
+      setTimeout(() => {
+        this.dialog.classList.add('dialog--hidden');
+      }, 500);
+    }
+  }
+
+  /**
+   * @private function for setting aria state
+   * @returns {String} - Returns state string value
+   */
+  aria() {
+    if (this.open) {
+      this.ariaHiddenState = 'false';
+
+      return this.ariaHiddenState;
+    }
+
+    if (!this.open) {
+      this.ariaHiddenState = 'true';
+
+      return this.ariaHiddenState;
+    }
+
+    return this.ariaHiddenState;
   }
 
   static get styles() {
@@ -115,7 +154,7 @@ class AuroDialog extends LitElement {
 
      contentClasses = {
       'dialog': true,
-      'dialog--open': this.open,
+      'dialog--open': this.open
     }
 
 
@@ -123,7 +162,7 @@ class AuroDialog extends LitElement {
       <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleViewable}>
       </div>
 
-      <dialog class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
+      <dialog id="dialog" aria-hidden="${this.aria()}" class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
         <div class="dialog-header">
           <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
             <slot name="header">Default header ...</slot>

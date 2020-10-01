@@ -129,6 +129,10 @@ $auro-spacing-options: none;
   z-index: -1;
   overflow: auto;
 
+  &--hidden {
+    display: none;
+  }
+
   // open modifier
   &--open {
     opacity: 1;
