@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.1.0...v1.2.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* address issue with display: none feature ([6c3be76](https://github.com/AlaskaAirlines/auro-dialog/commit/6c3be76e431f66754f954976e0a530db8b9f0bab))
+* set aria-hidden state when open/closed ([850ee8e](https://github.com/AlaskaAirlines/auro-dialog/commit/850ee8e26b97bba955f8300111f844b58ea121aa))
+
+
+### Features
+
+* add sm and md size attributes ([9654162](https://github.com/AlaskaAirlines/auro-dialog/commit/9654162cef6082c5c5e90711750ddda05cf8195d))
+* add support for scroll lock ([acc1edb](https://github.com/AlaskaAirlines/auro-dialog/commit/acc1edb0160b513c772a3e00ab6f919497ac7bac))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.0.1...v1.1.0) (2020-09-25)
 
 
