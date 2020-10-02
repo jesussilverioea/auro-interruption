@@ -67,18 +67,4 @@ describe('auro-dialog', () => {
     await listener;
     expect(el.getAttribute('dialogOverlay--open')).to.equal(null);
   });
-
-  it('auro-dialog sets dialog--open', async () => {
-    const el = await fixture(html`
-      <auro-dialog open="true">
-        <span slot="header">It's a dialog</span>
-        <span slot="content">Hello World!</span>
-      </auro-dialog>
-    `);
-
-    const dialog = el.shadowRoot.querySelector('#dialog');
-
-    expect(dialog).to.have.class('dialog--open');
-    expect(dialog).to.have.attribute('aria-hidden', 'false');
-  });
 });
