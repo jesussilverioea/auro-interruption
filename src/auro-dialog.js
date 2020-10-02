@@ -102,11 +102,11 @@ class AuroDialog extends LitElement {
     if (this.open) {
       setTimeout(() => {
         this.dialog.classList.remove('dialog--hidden');
-      }, 1);
+      }, 0);
 
       setTimeout(() => {
         this.dialog.classList.add('dialog--open');
-      }, 20);
+      }, 100);
     } else {
       setTimeout(() => {
         this.dialog.classList.remove('dialog--open');
@@ -116,26 +116,6 @@ class AuroDialog extends LitElement {
         this.dialog.classList.add('dialog--hidden');
       }, 500);
     }
-  }
-
-  /**
-   * @private function for setting aria state
-   * @returns {String} - Returns state string value
-   */
-  aria() {
-    if (this.open) {
-      this.ariaHiddenState = 'false';
-
-      return this.ariaHiddenState;
-    }
-
-    if (!this.open) {
-      this.ariaHiddenState = 'true';
-
-      return this.ariaHiddenState;
-    }
-
-    return this.ariaHiddenState;
   }
 
   static get styles() {
@@ -154,7 +134,7 @@ class AuroDialog extends LitElement {
 
      contentClasses = {
       'dialog': true,
-      'dialog--open': this.open
+      'dialog--hidden': true
     }
 
 
@@ -162,7 +142,7 @@ class AuroDialog extends LitElement {
       <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleViewable}>
       </div>
 
-      <dialog id="dialog" aria-hidden="${this.aria()}" class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
+      <dialog id="dialog" @click=${this.display()} class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
         <div class="dialog-header">
           <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
             <slot name="header">Default header ...</slot>
