@@ -81,10 +81,10 @@ class AuroDialog extends LitElement {
   /**
    * @private function for allowing the overlay to be clickable when the modal is open
    * @param {object} evt - Accepts event
-   * @returns {null}
+   * @returns {void}
    */
   toggleOverlayViewable(evt) {
-    if(this.open) {
+    if (this.open) {
       this.toggleViewable(evt)
     }
   }
