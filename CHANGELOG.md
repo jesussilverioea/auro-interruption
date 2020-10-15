@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.1](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.2.0...v1.2.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* restricts overlay clicks unless modal is open ([9b61b00](https://github.com/AlaskaAirlines/auro-dialog/commit/9b61b004114954863db120fef58cf1ae25201f98))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.1.0...v1.2.0) (2020-10-02)
 
 
