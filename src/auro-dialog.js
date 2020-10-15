@@ -79,6 +79,17 @@ class AuroDialog extends LitElement {
   }
 
   /**
+   * @private function for allowing the overlay to be clickable when the modal is open
+   * @param {object} evt - Accepts event
+   * @returns {null}
+   */
+  toggleOverlayViewable(evt) {
+    if(this.open) {
+      this.toggleViewable(evt)
+    }
+  }
+
+  /**
    * @private function for the purpose of determining open/close state of modal and locking page scroll when dialog is open
    * @param {object} evt - Accepts event
    * @returns {boolean} - Returns open state
@@ -139,7 +150,7 @@ class AuroDialog extends LitElement {
 
 
     return html`
-      <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleViewable}>
+      <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.modal ? null : this.toggleOverlayViewable}>
       </div>
 
       <dialog id="dialog" @click=${this.display()} class="${classMap(contentClasses)}" aria-labelledby="dialog-header">
