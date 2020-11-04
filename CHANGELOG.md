@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.2.1...v1.3.0) (2020-11-04)
+
+
+### Features
+
+* add fixed feature ([90cbdeb](https://github.com/AlaskaAirlines/auro-dialog/commit/90cbdebe3c4a2d9dfb7a8b1671279a363afed4c1))
+
 ## [1.2.1](https://github.com/AlaskaAirlines/auro-dialog/compare/v1.2.0...v1.2.1) (2020-10-15)
 
 
