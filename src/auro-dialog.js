@@ -3,12 +3,13 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map';
 
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-css.js";
+import styleCssFixed from './style-fixed-css.js';
 import closeIcon from '@alaskaairux/orion-icons/dist/icons/close-lg_es6.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
@@ -130,9 +131,10 @@ class AuroDialog extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [
+      styleCss,
+      styleCssFixed
+    ];
   }
 
   // function that renders the HTML and CSS into  the scope of the component

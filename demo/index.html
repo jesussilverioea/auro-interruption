@@ -27,6 +27,19 @@
       <h2>auro-dialog sm example</h2>
       <demo-snippet>
         <template>
+            <button onclick="fireDemo('#fixed');">Fixed</button>
+
+            <auro-dialog id="fixed" sm fixed>
+              <span slot="header">Dialog w/footer</span>
+              <span slot="content">
+                <long-text count="500"></long-text>
+              </span>
+
+              <span slot="footer">
+                <button onclick="closeDemo('#fixed');">Close</button>
+              </span>
+            </auro-dialog>
+
           <button onclick="fireDemo('#small');">Small Dialog</button>
 
           <auro-dialog id="small" sm>
