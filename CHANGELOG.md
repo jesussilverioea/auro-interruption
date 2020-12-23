@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.0.0...v1.1.0) (2020-12-23)
+
+
+### Features
+
+* add new auro-drawer custom element ([4effe9b](https://github.com/AlaskaAirlines/auro-interruption/commit/4effe9b4dffdab2951603675adcddeb4b21f1095))
+
 # 1.0.0 (2020-12-16)
 
 
