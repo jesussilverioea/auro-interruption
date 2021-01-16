@@ -1,5 +1,20 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.1.0...v1.2.0) (2021-01-16)
+
+
+### Bug Fixes
+
+* [#10](https://github.com/AlaskaAirlines/auro-interruption/issues/10) return focus to trigger element ([b0220f1](https://github.com/AlaskaAirlines/auro-interruption/commit/b0220f1404a3e3acb3b11d008faa19a383e5f5e5))
+* [#5](https://github.com/AlaskaAirlines/auro-interruption/issues/5) prevent bug when rapidly opening + closing ([19602cb](https://github.com/AlaskaAirlines/auro-interruption/commit/19602cbbb8cde79dbf32b0786e2a7295794b3afd))
+* [#7](https://github.com/AlaskaAirlines/auro-interruption/issues/7) close dialog on ESC ([c67ed38](https://github.com/AlaskaAirlines/auro-interruption/commit/c67ed38750bd0d85f5924c7b6c04dba282fbf358))
+
+
+### Features
+
+* add focus style for dialog ([4440148](https://github.com/AlaskaAirlines/auro-interruption/commit/44401488226854cb464df19ef03ef2f250268c25))
+* trap screen reader and keyboard focus ([4d15aad](https://github.com/AlaskaAirlines/auro-interruption/commit/4d15aad4cf82054cf03cdc6e9da7a947ae9e4302)), closes [#8](https://github.com/AlaskaAirlines/auro-interruption/issues/8) [#9](https://github.com/AlaskaAirlines/auro-interruption/issues/9)
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.0.0...v1.1.0) (2020-12-23)
 
 
