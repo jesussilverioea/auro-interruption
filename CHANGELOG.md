@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.1](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.0...v1.2.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* prevent focusing other WC when open ([7271f70](https://github.com/AlaskaAirlines/auro-interruption/commit/7271f70d5f70affe4d27bd18f9d1df137a639904))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.1.0...v1.2.0) (2021-01-16)
 
 
