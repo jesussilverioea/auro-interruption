@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.2...v1.2.3) (2021-04-15)
+
+
+### Bug Fixes
+
+* update dist for interruptionToggle function ([ac52c6c](https://github.com/AlaskaAirlines/auro-interruption/commit/ac52c6c05f48252fb5e4a502722a5d3da31eb83a))
+
 ## [1.2.2](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.1...v1.2.2) (2021-04-15)
 
 
