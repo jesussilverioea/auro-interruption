@@ -537,6 +537,10 @@ Part of the drawer design spec is its responsive padding. To take advantage of t
 
 ```scss
 import '@alaskaairux/auro-interruption/dist/style-unformatted.scss'
+
+or
+
+import '@alaskaairux/auro-interruption@/dist/style-unformatted.css'
 ```
 
 ### Accessibility
@@ -547,21 +551,7 @@ Within the scope of the auro-drawer there is `aria-labelledby="dialog-header"`. 
   <auro-button onClick="toggleInterruption('#unformattedMdDrawer')">Unformatted Medium Dialog</auro-button>
 </div>
 
-<!--
-  This needs to be replaced with a link to the
-  remote when published.
--->
-<style>
-  [unformatted] .unformattedWrapper{
-  padding:2rem;
-  padding:var(--auro-size-xl); }
-  @media screen and (min-width: 1024px){
-    [unformatted] .unformattedWrapper{
-      padding:4rem;
-      padding:var(--auro-size-xxxl);
-      padding-top:2rem;
-      padding-top:var(--auro-size-xl); } }
-</style>
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
 
 <auro-drawer id="unformattedMdDrawer" unformatted md lg ondark>
   <span slot="content">
@@ -577,7 +567,7 @@ Within the scope of the auro-drawer there is `aria-labelledby="dialog-header"`. 
   <span slot="trigger">See code</span>
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/.../dist/style-unformatted.css">
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css">
 
 <auro-button onClick="toggleInterruption('#unformattedMdDialog')">Unformatted Medium Dialog</auro-button>
 

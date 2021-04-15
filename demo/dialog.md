@@ -455,8 +455,12 @@ This property can be used in combination of any other use case of the dialog, bu
 
 Part of the dialog design spec is its responsive padding. To take advantage of this for your content within the scope of the dialog, be sure to use the selector `unformattedWrapper` that can be imported from the package here:
 
-```scss
+```css
 import '@alaskaairux/auro-interruption/dist/style-unformatted.scss'
+
+or
+
+import '@alaskaairux/auro-interruption@/dist/style-unformatted.css'
 ```
 
 ### Accessibility
@@ -467,21 +471,7 @@ Within the scope of the auro-dialog there is `aria-labelledby="dialog-header"`. 
   <auro-button onClick="toggleInterruption('#unformattedMdDialog')">Unformatted Medium Dialog</auro-button>
 </div>
 
-<!--
-  This needs to be replaced with a link to the
-  remote when published.
--->
-<style>
-  [unformatted] .unformattedWrapper{
-  padding:2rem;
-  padding:var(--auro-size-xl); }
-  @media screen and (min-width: 1024px){
-    [unformatted] .unformattedWrapper{
-      padding:4rem;
-      padding:var(--auro-size-xxxl);
-      padding-top:2rem;
-      padding-top:var(--auro-size-xl); } }
-</style>
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
 
 <auro-dialog id="unformattedMdDialog" unformatted md lg ondark>
   <span slot="content">
@@ -498,7 +488,7 @@ Within the scope of the auro-dialog there is `aria-labelledby="dialog-header"`. 
   <span slot="trigger">See code</span>
 
 ```html
-  <link rel="stylesheet" href="https://unpkg.com/.../dist/style-unformatted.css">
+  <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css">
 
   <auro-button onClick="toggleInterruption('#unformattedMdDialog')">Unformatted Medium Dialog</auro-button>
 
