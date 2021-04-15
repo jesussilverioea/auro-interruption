@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [1.2.2](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.1...v1.2.2) (2021-04-15)
+
+
+### Bug Fixes
+
+* update 'branches' config ([f798ce3](https://github.com/AlaskaAirlines/auro-interruption/commit/f798ce339fa22d4decc48065d0bf9c9ddd76058f))
+* update postCSS to do all necessary CSS files ([3283c34](https://github.com/AlaskaAirlines/auro-interruption/commit/3283c34b46cd341bcaa44da0efda220bc8c03102))
+
 ## [1.2.1](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.0...v1.2.1) (2021-03-16)
 
 
