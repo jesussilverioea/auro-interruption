@@ -17,10 +17,6 @@ The `auro-dialog` component should be used in situations where users may:
 
 Triggering the dialog relies on functions being installed. See the following example code that is installed into this demo.
 
-Notice the use of `body.style.overflow = 'hidden';`. This is an a11y feature that will lock the background scroll when the dialog is open. These events need to be triggered for this to work. The auro-dialog component's built-in close feature for modal dialogs is also pre-configured to address this.
-
-If for any reason this feature is unwanted, simple remove this reference and the dialog will scroll as expected. NOTE: This comes highly unrecommended.
-
 ```javascript
 toggleInterruption = (elName) => {
   let interruption = document.querySelector(elName);
@@ -31,6 +27,8 @@ toggleInterruption = (elName) => {
   : (interruption.removeAttribute("open"),
     interruption.setAttribute("open", true))
 }
+
+// This function can be retrieved from https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/toggleInterruption.js
 ```
 
 Once the JavaScript is added to the scope of the experience, the next part is adding a trigger. In this example, the button component will toggle a dialog with the ID of `#demo1`.
