@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.4](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.3...v1.2.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* [#30](https://github.com/AlaskaAirlines/auro-interruption/issues/30) remove tokens from final CSS output ([3176208](https://github.com/AlaskaAirlines/auro-interruption/commit/317620815fa84e13f297961888dda047cd2f5787))
+
 ## [1.2.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.2...v1.2.3) (2021-04-15)
 
 
