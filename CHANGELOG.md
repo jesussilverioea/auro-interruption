@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.6](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.5...v1.2.6) (2021-05-28)
+
+
+### Bug Fixes
+
+* **overlay:** correct class added for overlay fix ([9799513](https://github.com/AlaskaAirlines/auro-interruption/commit/9799513a7fc46a920b5e9ce908d55826654d60b8))
+
 ## [1.2.5](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.4...v1.2.5) (2021-05-28)
 
 
