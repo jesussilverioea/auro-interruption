@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.5](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.4...v1.2.5) (2021-05-28)
+
+
+### Bug Fixes
+
+* **overlay:** hidden dialog when closed ([d71e2c6](https://github.com/AlaskaAirlines/auro-interruption/commit/d71e2c6f00d63fce416ba05608e76928260939f6))
+
 ## [1.2.4](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.3...v1.2.4) (2021-04-30)
 
 
