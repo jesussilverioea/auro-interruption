@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.6...v1.3.0) (2021-06-23)
+
+
+### Features
+
+* expose triggerElement prop ([55ac327](https://github.com/AlaskaAirlines/auro-interruption/commit/55ac327cbcf8a77d7fa4c268fd672fdbfbb764e2))
+
 ## [1.2.6](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.5...v1.2.6) (2021-05-28)
 
 
