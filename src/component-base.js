@@ -53,12 +53,17 @@ export default class ComponentBase extends LitElement {
     this.svg = this.dom.body.firstChild;
 
     this._open = false;
+    this.modal = false;
+    this.unformatted = false;
   }
 
   static get properties() {
     return {
       modal: { type: Boolean },
-      unformatted: { type: Boolean },
+      unformatted: {
+        type: Boolean,
+        reflect: true
+      },
       open: {
         type: Boolean,
         reflect: true
