@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.1](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.0...v1.3.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* reflect unformatted prop and default modal to false ([a01a109](https://github.com/AlaskaAirlines/auro-interruption/commit/a01a10900ba407d132578ea35563c75031890672))
+
 # [1.3.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.2.6...v1.3.0) (2021-06-23)
 
 
