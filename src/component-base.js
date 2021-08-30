@@ -52,7 +52,6 @@ export default class ComponentBase extends LitElement {
      */
     this.svg = this.dom.body.firstChild;
 
-    this._open = false;
     this.modal = false;
     this.unformatted = false;
   }
@@ -85,21 +84,19 @@ export default class ComponentBase extends LitElement {
     }
   }
 
-  get open() {
-    return this._open;
-  }
-
-  set open(val) {
-    const oldVal = this._open;
-
-    this._open = val;
-    this.requestUpdate('open', oldVal).then(() => {
+  /**
+   * LitElement lifecycle method. Called after the DOM has been updated.
+   * @param {Map<string, any>} changedProperties - keys are the names of changed properties, values are the corresponding previous values.
+   * @returns {void}
+   */
+  updated(changedProperties) {
+    if (changedProperties.has('open')) {
       if (this.open) {
         this.openDialog();
       } else {
         this.closeDialog();
       }
-    });
+    }
   }
 
   connectedCallback() {
