@@ -11,12 +11,12 @@
 
 ## Properties
 
-| Property         | Attribute     | Type          | Description                                      |
-|------------------|---------------|---------------|--------------------------------------------------|
-| `modal`          | `modal`       | `Boolean`     | Modal dialog restricts the user to take an action (no default close actions) |
-| `open`           | `open`        | `Boolean`     | Sets state of dialog to open                     |
-| `triggerElement` |               | `HTMLElement` | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
-| `unformatted`    | `unformatted` | `Boolean`     | Unformatted dialog window, edge-to-edge fill for content |
+| Property         | Attribute     | Type          | Default | Description                                      |
+|------------------|---------------|---------------|---------|--------------------------------------------------|
+| `modal`          | `modal`       | `Boolean`     | false   | Modal dialog restricts the user to take an action (no default close actions) |
+| `open`           | `open`        | `Boolean`     |         | Sets state of dialog to open                     |
+| `triggerElement` |               | `HTMLElement` |         | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
+| `unformatted`    | `unformatted` | `Boolean`     | false   | Unformatted dialog window, edge-to-edge fill for content |
 
 ## Slots
 
@@ -41,12 +41,12 @@
 
 ## Properties
 
-| Property         | Attribute     | Type          | Description                                      |
-|------------------|---------------|---------------|--------------------------------------------------|
-| `modal`          | `modal`       | `Boolean`     | Modal dialog restricts the user to take an action (no default close actions) |
-| `open`           | `open`        | `Boolean`     | Sets state of dialog to open                     |
-| `triggerElement` |               | `HTMLElement` | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
-| `unformatted`    | `unformatted` | `Boolean`     | Unformatted dialog window, edge-to-edge fill for content |
+| Property         | Attribute     | Type          | Default | Description                                      |
+|------------------|---------------|---------------|---------|--------------------------------------------------|
+| `modal`          | `modal`       | `Boolean`     | false   | Modal dialog restricts the user to take an action (no default close actions) |
+| `open`           | `open`        | `Boolean`     |         | Sets state of dialog to open                     |
+| `triggerElement` |               | `HTMLElement` |         | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
+| `unformatted`    | `unformatted` | `Boolean`     | false   | Unformatted dialog window, edge-to-edge fill for content |
 
 ## Slots
 
