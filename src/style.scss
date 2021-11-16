@@ -69,7 +69,10 @@ $auro-spacing-options: none;
 
   width: 100%;
   max-height: 90%;
-  padding: var(--auro-size-xl);
+  padding-left: var(--auro-size-xl);
+  padding-right: var(--auro-size-xl);
+  padding-bottom: var(--auro-size-xl);
+  padding-top: 0px;
 
   transform: translateY(100%);
 
@@ -88,7 +91,10 @@ $auro-spacing-options: none;
     max-width: 80%;
     max-height: 80%;
     margin: auto;
-    padding: var(--auro-size-xxxl);
+    padding-bottom: var(--auro-size-xxxl);
+    padding-left: var(--auro-size-xxxl);
+    padding-right: var(--auro-size-xxxl);
+    padding-top: 0px;
 
     transform: scale(0);
 
@@ -131,6 +137,7 @@ $auro-spacing-options: none;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  padding-top: var(--auro-size-xxxl);
 
   & svg {
     fill: var(--auro-color-text-secondary-on-light);
@@ -189,7 +196,10 @@ $auro-spacing-options: none;
 
       max-width: 40%;
       max-height: 80%;
-      padding: var(--auro-size-xxl);
+      padding-bottom: var(--auro-size-xxl);
+      padding-left: var(--auro-size-xxl);
+      padding-right: var(--auro-size-xxl);
+      padding-top: 0px;
     }
   }
   @include auro_breakpoint--lg {
