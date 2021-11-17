@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.2...v1.3.3) (2021-11-17)
+
+
+### Bug Fixes
+
+* **style:** adjust margin to not apply when scrolling [#55](https://github.com/AlaskaAirlines/auro-interruption/issues/55) ([5d2bb65](https://github.com/AlaskaAirlines/auro-interruption/commit/5d2bb655a97ad2c8ac353d873196e7b2a223d818))
+
 ## [1.3.2](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.1...v1.3.2) (2021-10-21)
 
 
