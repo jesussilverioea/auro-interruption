@@ -17,10 +17,13 @@ $auro-spacing-types: stack;
 $auro-spacing-options: none;
 @import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariableMap";
 @import "./node_modules/@alaskaairux/webcorestylesheets/dist/utilityMixins/spacingUtility";
+
 // container styles - defines the look of the outer custom component
-// :host {
-//   ...
-// }
+:host {
+  --insetPaddingXl: 0 var(--auro-size-xl) var(--auro-size-xl) var(--auro-size-xl);
+  --insetPaddingXxl: 0 var(--auro-size-xxl) var(--auro-size-xxl) var(--auro-size-xxl);
+  --insetPaddingXxxl: 0 var(--auro-size-xxxl) var(--auro-size-xxxl) var(--auro-size-xxxl);
+}
 
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element outside the scope of this component
@@ -69,10 +72,7 @@ $auro-spacing-options: none;
 
   width: 100%;
   max-height: 90%;
-  padding-left: var(--auro-size-xl);
-  padding-right: var(--auro-size-xl);
-  padding-bottom: var(--auro-size-xl);
-  padding-top: 0px;
+  padding: var(--insetPaddingXl);
 
   transform: translateY(100%);
 
@@ -91,10 +91,7 @@ $auro-spacing-options: none;
     max-width: 80%;
     max-height: 80%;
     margin: auto;
-    padding-bottom: var(--auro-size-xxxl);
-    padding-left: var(--auro-size-xxxl);
-    padding-right: var(--auro-size-xxxl);
-    padding-top: 0px;
+    padding: var(--insetPaddingXxxl);
 
     transform: scale(0);
 
@@ -196,10 +193,7 @@ $auro-spacing-options: none;
 
       max-width: 40%;
       max-height: 80%;
-      padding-bottom: var(--auro-size-xxl);
-      padding-left: var(--auro-size-xxl);
-      padding-right: var(--auro-size-xxl);
-      padding-top: 0px;
+      padding: var(--insetPaddingXxl);
     }
   }
   @include auro_breakpoint--lg {
