@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.4](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.3...v1.3.4) (2021-11-20)
+
+
+### Bug Fixes
+
+* **node version:** address incorrect version directional [#60](https://github.com/AlaskaAirlines/auro-interruption/issues/60) ([eb840e1](https://github.com/AlaskaAirlines/auro-interruption/commit/eb840e13ddb04c85f46c09199697c8ba1c61f9c8))
+
 ## [1.3.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.2...v1.3.3) (2021-11-17)
 
 
