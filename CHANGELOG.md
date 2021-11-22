@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.5](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.4...v1.3.5) (2021-11-22)
+
+
+### Bug Fixes
+
+* check for cleanup function before calling [#59](https://github.com/AlaskaAirlines/auro-interruption/issues/59) ([e70071c](https://github.com/AlaskaAirlines/auro-interruption/commit/e70071cbdefd0c34cccddad35b203f599265dd01))
+
 ## [1.3.4](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.3...v1.3.4) (2021-11-20)
 
 
