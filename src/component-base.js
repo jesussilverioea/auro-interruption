@@ -129,13 +129,15 @@ export default class ComponentBase extends LitElement {
    */
   closeDialog() {
     this.dispatchToggleEvent();
-    this.cleanupInertNodes();
-    // Wait for the inert polyfill to react to the DOM change
-    Promise.resolve().then(() => {
-      const elementToFocus = this.triggerElement || this.defaultTrigger;
+    if (this.cleanupInertNodes) {
+      this.cleanupInertNodes();
+      // Wait for the inert polyfill to react to the DOM change
+      Promise.resolve().then(() => {
+        const elementToFocus = this.triggerElement || this.defaultTrigger;
 
-      elementToFocus.focus();
-    });
+        elementToFocus.focus();
+      });
+    }
   }
 
   /**

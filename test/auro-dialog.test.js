@@ -212,6 +212,18 @@ describe('auro-drawer', () => {
     await oneEvent(el, 'toggle');
   });
 
+  it('does not throw error when open set to false and already closed', async () => {
+    const el = await fixture(html`
+      <auro-dialog>
+        <span slot="header">It's a dialog</span>
+        <span slot="content">Hello World!</span>
+      </auro-dialog>
+    `);
+
+    el.open = false;
+    await el.updateComplete;
+  });
+
   it('handles focus on nested shadow roots', async () => {
     const el = await fixture(html`
       <nested-shadow></nested-shadow>
