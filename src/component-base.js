@@ -36,6 +36,7 @@ const ESCAPE_KEYCODE = 27,
  * @slot content - Injects content into the body of the modal
  * @slot footer - Used for action options, e.g. buttons
  * @function toggleViewable - toggles the 'open' property on the element
+ * @event toggle - Event fires when the element is closed
  */
 
 export default class ComponentBase extends LitElement {

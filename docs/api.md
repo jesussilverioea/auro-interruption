@@ -18,6 +18,12 @@
 | `triggerElement` |               | `HTMLElement` |         | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
 | `unformatted`    | `unformatted` | `Boolean`     | false   | Unformatted dialog window, edge-to-edge fill for content |
 
+## Events
+
+| Event    | Description                            |
+|----------|----------------------------------------|
+| `toggle` | Event fires when the element is closed |
+
 ## Slots
 
 | Name      | Description                                |
@@ -47,6 +53,12 @@
 | `open`           | `open`        | `Boolean`     |         | Sets state of dialog to open                     |
 | `triggerElement` |               | `HTMLElement` |         | The element to focus when the dialog is closed. If not set, defaults to the value of document.activeElement when the dialog is opened. |
 | `unformatted`    | `unformatted` | `Boolean`     | false   | Unformatted dialog window, edge-to-edge fill for content |
+
+## Events
+
+| Event    | Description                            |
+|----------|----------------------------------------|
+| `toggle` | Event fires when the element is closed |
 
 ## Slots
 
