@@ -501,3 +501,57 @@ Within the scope of the auro-dialog there is `aria-labelledby="dialog-header"`. 
   </auro-dialog>
 ```
 </auro-accordion>
+
+### Edit close button position
+
+When using the dialog with the `unformatted` attribute, some may want to adjust the positioning of the X close button. This can be addressed using the CSS `::part` CSS pseudo-element API.
+
+<div class="demo--inline exampleWrapper auro_containedButtons">
+  <auro-button onClick="toggleInterruption('#unformattedCustomMdDrawer')">Unformatted w/custom close button</auro-button>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
+
+<style>
+  .example::part(close-button) {
+    top: var(--auro-size-xl);
+    right: var(--auro-size-xl);
+    color: var(--auro-color-brand-flamingo-500);
+  }
+</style>
+
+<auro-dialog id="unformattedCustomMdDrawer" unformatted md lg class="example">
+  <span slot="content">
+    <img style="display: block; width: 100%" src="https://worldairlinenews.files.wordpress.com/2022/05/alaska-737-800-sswl-n538as-22-star-warstko-sfo-mdblr-5.4.22.jpg" alt="alaska airlines pride lights" />
+    <div class="unformattedWrapper">
+      <h1 id="dialog-header">Unformatted w/custom close button</h1>
+      Notice the custom location of the close button as well as the custom color.
+    </div>
+  </span>
+</auro-dialog>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
+
+<style>
+  .example::part(close-button) {
+    top: var(--auro-size-xl);
+    right: var(--auro-size-xl);
+    color: var(--auro-color-brand-flamingo-500);
+  }
+</style>
+
+<auro-dialog id="unformattedCustomMdDrawer" unformatted md lg class="example">
+  <span slot="content">
+    <img style="display: block; width: 100%" src="https://worldairlinenews.files.wordpress.com/2022/05/alaska-737-800-sswl-n538as-22-star-warstko-sfo-mdblr-5.4.22.jpg" alt="alaska airlines pride lights" />
+    <div class="unformattedWrapper">
+      <h1 id="dialog-header">Unformatted w/custom close button</h1>
+      Notice the custom location of the close button as well as the custom color.
+    </div>
+  </span>
+</auro-dialog>
+```
+</auro-accordion>

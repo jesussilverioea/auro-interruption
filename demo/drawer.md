@@ -66,7 +66,7 @@ The auro-drawer supports two different entry options. Using the `left` attribute
   <auro-drawer id="defaultDrawer">
     <span slot="header">Default Drawer</span>
     <div slot="content">
-      <p>When traveling on Alaska Airlines flights, Alaska Airlines checked baggage fees may apply. See <auro-hyperlink href="https://www.alaskaair.com/bagrules" target="_blank">alaskaair.com/bagrules</auro-hyperlink> for our rules. For itineraries that include other airlines, their checked baggage fees may apply, as displayed on their websites.</p>
+      <p>When traveling on Alaska Airlines flights, Alaska Airlines checked baggage fees may apply. See <auro-hyperlink href="https://www.alaskaair.com/bagrules" target="_blank">64alaskaair.com/bagrules</auro-hyperlink> for our rules. For itineraries that include other airlines, their checked baggage fees may apply, as displayed on their websites.</p>
       <p>Baggage rules and fees will be based on the specific itinerary chosen. The applicable first and second bag fees will be displayed after you have added flights to the cart.</p>
       <auro-header level="3" display="500">Before checking your bags, remember to:</auro-header>
       <ul>
@@ -575,6 +575,60 @@ Within the scope of the auro-drawer there is `aria-labelledby="dialog-header"`. 
     <div class="unformattedWrapper">
       <h1 id="dialog-header">This is a header</h1>
       These are words that are slotted into the scope of the custom element.
+    </div>
+  </span>
+</auro-drawer>
+```
+</auro-accordion>
+
+### Edit close button position
+
+When using the drawer with the `unformatted` attribute, some may want to adjust the positioning of the X close button. This can be addressed using the CSS `::part` CSS pseudo-element API.
+
+<div class="demo--inline exampleWrapper auro_containedButtons">
+  <auro-button onClick="toggleInterruption('#unformattedCustomMdDrawer')">Unformatted w/custom close button</auro-button>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
+
+<style>
+  .example::part(close-button) {
+    top: var(--auro-size-xl);
+    right: var(--auro-size-xl);
+    color: var(--auro-color-brand-flamingo-500);
+  }
+</style>
+
+<auro-drawer id="unformattedCustomMdDrawer" unformatted md lg class="example">
+  <span slot="content">
+    <img style="display: block; width: 100%" src="https://worldairlinenews.files.wordpress.com/2022/05/alaska-737-800-sswl-n538as-22-star-warstko-sfo-mdblr-5.4.22.jpg" alt="alaska airlines pride lights" />
+    <div class="unformattedWrapper">
+      <h1 id="dialog-header">Unformatted w/custom close button</h1>
+      Notice the custom location of the close button as well as the custom color.
+    </div>
+  </span>
+</auro-drawer>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/auro-interruption@latest/dist/style-unformatted.css" />
+
+<style>
+  .example::part(close-button) {
+    top: var(--auro-size-xl);
+    right: var(--auro-size-xl);
+    color: var(--auro-color-brand-flamingo-500);
+  }
+</style>
+
+<auro-drawer id="unformattedCustomMdDrawer" unformatted md lg class="example">
+  <span slot="content">
+    <img style="display: block; width: 100%" src="https://worldairlinenews.files.wordpress.com/2022/05/alaska-737-800-sswl-n538as-22-star-warstko-sfo-mdblr-5.4.22.jpg" alt="alaska airlines pride lights" />
+    <div class="unformattedWrapper">
+      <h1 id="dialog-header">Unformatted w/custom close button</h1>
+      Notice the custom location of the close button as well as the custom color.
     </div>
   </span>
 </auro-drawer>

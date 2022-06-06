@@ -32,6 +32,12 @@
 | `footer`  | Used for action options, e.g. buttons      |
 | `header`  | Text to display as the header of the modal |
 
+## CSS Shadow Parts
+
+| Part           | Description                                      |
+|----------------|--------------------------------------------------|
+| `close-button` | adjust position of the close X icon in the dialog window |
+
 
 # auro-drawer
 
@@ -67,3 +73,9 @@
 | `content` | Injects content into the body of the modal |
 | `footer`  | Used for action options, e.g. buttons      |
 | `header`  | Text to display as the header of the modal |
+
+## CSS Shadow Parts
+
+| Part           | Description                                      |
+|----------------|--------------------------------------------------|
+| `close-button` | adjust position of the close X icon in the dialog window |
