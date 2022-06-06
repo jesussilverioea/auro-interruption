@@ -59,7 +59,7 @@ It should be noted that the `footer` slot is reserved for the placement of actio
 
 The auro-dialog supports three different sizes. A default dialog is equal to the large size dialog. Using the `sm` and `md` attributes, the component supports these sizes for both mobile and desktop.
 
-The size attribute effects the `width` of the desktop dialog. Its `height` is dictated by the content. On mobile, the `size` attribute effects the `maximum height` the dialog will use of the device screen. Its width will be 100%.
+The size attribute effects the `width` of the desktop dialog. Its `height` is dictated by the content with a max height of `80%`. On mobile, the `size` attribute effects the `maximum height` the dialog will use of the device screen. Its width will be 100%.
 
 
 <div class="demo--inline exampleWrapper auro_containedButtons">

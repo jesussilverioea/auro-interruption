@@ -187,6 +187,10 @@ $auro-spacing-options: none;
 }
 
 :host([sm]) {
+  .dialog {
+    max-height: 30%;
+  }
+
   @include auro_breakpoint--md {
     .dialog {
       top: 10%;
@@ -201,13 +205,13 @@ $auro-spacing-options: none;
       max-width: 740px;
     }
   }
-
-  .dialog {
-    max-height: 30%;
-  }
 }
 
 :host([md]) {
+  .dialog {
+    max-height: 50%;
+  }
+
   @include auro_breakpoint--md {
     .dialog {
       top: 10%;
@@ -222,10 +226,6 @@ $auro-spacing-options: none;
 
       max-width: 740px;
     }
-  }
-
-  .dialog {
-    max-height: 50%;
   }
 }
 
