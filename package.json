@@ -23,7 +23,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "lit-element": "^2.4.0",
-    "wicg-inert": "^3.1.1"
+    "wicg-inert": "^3.1.2"
   },
   "peerDependencies": {
     "@alaskaairux/design-tokens": "^3.4.0",
