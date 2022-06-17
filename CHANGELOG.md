@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.4.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.6...v1.4.0) (2022-06-17)
+
+
+### Features
+
+* **css part:** add support for customizing close button [#72](https://github.com/AlaskaAirlines/auro-interruption/issues/72) ([d0db0d2](https://github.com/AlaskaAirlines/auro-interruption/commit/d0db0d2641896a2b61b3232671006b417d91d6d5))
+
 ## [1.3.6](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.5...v1.3.6) (2022-06-17)
 
 
