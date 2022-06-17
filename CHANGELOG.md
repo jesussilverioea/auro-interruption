@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+## [1.3.6](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.5...v1.3.6) (2022-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update wicg-inert to address broken test ([52d37c0](https://github.com/AlaskaAirlines/auro-interruption/commit/52d37c02a01a096a1994103d005531d0e1eb160a))
+* **docs:** document toggle event ([b737a48](https://github.com/AlaskaAirlines/auro-interruption/commit/b737a48b6d6b0bb0715864c56622c261e8fa4648))
+* **height:** update css to be in correct cascade order [#71](https://github.com/AlaskaAirlines/auro-interruption/issues/71) ([251a77b](https://github.com/AlaskaAirlines/auro-interruption/commit/251a77bcc60ade9c38296cd05c850001ed3a6271))
+
 ## [1.3.5](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.4...v1.3.5) (2021-11-22)
 
 
