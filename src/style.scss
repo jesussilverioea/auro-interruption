@@ -4,19 +4,19 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
+@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
+@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
 
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/core";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/animation";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/headings";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/utilityClasses/displayProperties";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/core";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/animation";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/headings";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/utilityClasses/displayProperties";
 
 $auro-spacing-types: stack;
 $auro-spacing-options: none;
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariableMap";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/utilityMixins/spacingUtility";
+@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariableMap";
+@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/utilityMixins/spacingUtility";
 
 // container styles - defines the look of the outer custom component
 :host {
