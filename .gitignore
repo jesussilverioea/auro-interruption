@@ -5,9 +5,15 @@ node_modules/
 ## Sass files built on demand from Token files
 demo/sass/_*.scss
 
+## Demo support files
+demo/css/*.css
+demo/css/*.css.map
+demo/sass/*.css
+demo/sass/*.css.map
+
 ## CSS built from Sass process
-demo/css
 src/*.css
+src/*.css.map
 
 ## *-css built from sass-render process
 *-css.js
