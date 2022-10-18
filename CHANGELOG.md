@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.1](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.4.0...v1.4.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* **drawer:** increase width of medium drawer [#79](https://github.com/AlaskaAirlines/auro-interruption/issues/79) ([cf9f28f](https://github.com/AlaskaAirlines/auro-interruption/commit/cf9f28faf9fed3fae7d11b62788c01530721afd5))
+
 # [1.4.0](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.3.6...v1.4.0) (2022-06-17)
 
 
