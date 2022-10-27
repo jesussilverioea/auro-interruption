@@ -15,6 +15,9 @@ export function makeSiblingsInert(node) {
    * @returns {void}
    */
   function handleInert(currentNode) {
+		if(!currentNode.parentNode && currentNode.host){
+			currentNode = currentNode.host;
+		}
     if (currentNode.parentNode) {
       for (const elem of currentNode.parentNode.childNodes) {
         if (elem !== currentNode && elem.nodeType === Node.ELEMENT_NODE) {
